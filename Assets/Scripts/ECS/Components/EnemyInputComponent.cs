@@ -6,11 +6,7 @@ using UnityEngine;
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 [System.Serializable]
-public struct MovementComponent : IComponent
+public struct EnemyInputComponent : IComponent
 {
-   [field: SerializeField] public float HorizontalInput { get; set; }
-   [field: SerializeField] public float VerticalInput { get; set; }
-
-    public float Speed;
-    public Rigidbody Rigidbody;
+    public MovementProvider MovementProvider;
 }

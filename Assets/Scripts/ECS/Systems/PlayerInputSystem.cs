@@ -10,20 +10,27 @@ using Unity.IL2CPP.CompilerServices;
 public sealed class PlayerInputSystem : UpdateSystem
 {
     private Filter filter;
-   
-    
+    private Transform _cameraTransform;
+
+
     public override void OnAwake()
     {
+        _cameraTransform = Camera.main.transform;
+
         filter = this.World.Filter.With<PlayerInputComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
-        foreach (var entity in this.filter) {
+        foreach (var entity in this.filter)
+        {
             ref var playerInputComponent = ref entity.GetComponent<PlayerInputComponent>();
-            
-            playerInputComponent.HorizontalInput = Input.GetAxisRaw("Horizontal");
-            playerInputComponent.VerticalInput = Input.GetAxisRaw("Vertical");
+
+            Vector3 dir = _cameraTransform.rotation *
+                          new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+
+            playerInputComponent.MovementProvider.GetData().HorizontalInput = dir.x;
+            playerInputComponent.MovementProvider.GetData().VerticalInput = dir.z;
         }
     }
 }
