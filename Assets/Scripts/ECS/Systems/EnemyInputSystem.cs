@@ -27,9 +27,7 @@ public sealed class EnemyInputSystem : UpdateSystem
         {
             ref var enemyInputComponent = ref entity.GetComponent<EnemyInputComponent>();
             ref var enemyTagComponent = ref entity.GetComponent<EnemyTagComponent>();
-            
-            Debug.Log((enemyTagComponent.Transform.position - targetPosition).normalized);
-            
+
             enemyInputComponent.MovementProvider.GetData().HorizontalInput = (targetPosition - enemyTagComponent.Transform.position).normalized.x;
             enemyInputComponent.MovementProvider.GetData().VerticalInput = (targetPosition- enemyTagComponent.Transform.position ).normalized.z;
         }
