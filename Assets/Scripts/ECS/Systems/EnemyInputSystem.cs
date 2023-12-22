@@ -21,8 +21,8 @@ public sealed class EnemyInputSystem : UpdateSystem
 
     public override void OnUpdate(float deltaTime)
     {
-        Vector3 targetPosition = _playerTagFilter.First().GetComponent<PlayerTagComponent>().Transform.position;
-            
+        Vector3 targetPosition = _playerTagFilter.First().GetComponent<PlayerTagComponent>().Transform.position;    
+    
         foreach (var entity in _enemyInputFilter)
         {
             ref var enemyInputComponent = ref entity.GetComponent<EnemyInputComponent>();
