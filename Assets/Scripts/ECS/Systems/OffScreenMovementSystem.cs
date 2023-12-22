@@ -9,7 +9,7 @@ using Unity.IL2CPP.CompilerServices;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(OffScreenMovementSystem))]
 public sealed class OffScreenMovementSystem : FixedUpdateSystem
 {
-    private const float OFFSCREEN_TICK_TIME = 5f;
+    private const float OFFSCREEN_TICK_TIME = 3f;
     private float tickTimer = 0f;
     
     private Filter filter;
@@ -26,20 +26,20 @@ public sealed class OffScreenMovementSystem : FixedUpdateSystem
         if (tickTimer >= OFFSCREEN_TICK_TIME)
         {
             tickTimer = 0f;
-            Tick();
+            Tick(deltaTime);
         }
     }
 
-    public void Tick()
+    public void Tick(float deltaTime)
     {
         foreach (var entity in this.filter)
         {
             ref var movementComponent = ref entity.GetComponent<MovementComponent>();
 
             movementComponent.Transform.Translate(new Vector3(
-                movementComponent.HorizontalInput * movementComponent.Speed ,
+                movementComponent.HorizontalInput * movementComponent.Speed*OFFSCREEN_TICK_TIME ,
                 0f,
-                movementComponent.VerticalInput * movementComponent.Speed ), Space.World);
+                movementComponent.VerticalInput * movementComponent.Speed*OFFSCREEN_TICK_TIME), Space.World);
 
             if (movementComponent.HorizontalInput != 0 || movementComponent.VerticalInput != 0)
                 movementComponent.Transform.rotation = Quaternion.LookRotation(new Vector3(movementComponent.HorizontalInput, 0f, movementComponent.VerticalInput), Vector3.up);

@@ -46,8 +46,7 @@ public sealed class EnemySpawnSystem : UpdateSystem
     
     private void SpawnEnemy(EnemySpawnComponent aSpawner)
     {
-        ObjectFactory.CreateObject(GetEnemyToSpawn(aSpawner.SpawnerData),
-            GetPositionToSpawn(aSpawner.SpawnerData), aSpawner.SpawnerTransform);
+        ObjectFactory.CreateObject(GetEnemyToSpawn(aSpawner.SpawnerData), aSpawner.SpawnerTransform, GetPositionToSpawn(aSpawner.SpawnerData));
     }
     
     private GameObject GetEnemyToSpawn(SpawnerData aSpawnData)

@@ -49,6 +49,6 @@ public sealed class OffScreenSystem : UpdateSystem
     {
         Vector3 viewportPoint = _camera.WorldToViewportPoint(aComponent.Transform.position);
 
-        return (viewportPoint.x < -0.1f || viewportPoint.x > 1.1f || viewportPoint.y < -0.1f || viewportPoint.y > 1.1f);
+        return (viewportPoint.x < -0.2f || viewportPoint.x > 1.2f || viewportPoint.y < -0.2f || viewportPoint.y > 1.2f);
     }
 }
