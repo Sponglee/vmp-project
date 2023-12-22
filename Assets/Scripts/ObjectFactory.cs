@@ -8,4 +8,12 @@ public static class ObjectFactory
 
         return tmpObject;
     }
+    
+    
+    public static GameObject CreateObject(GameObject aObject, Vector3 aPosition, Transform aContainer)
+    {
+        GameObject tmpObject = GameObject.Instantiate(aObject, aPosition, Quaternion.identity, aContainer);
+
+        return tmpObject;
+    }
 }

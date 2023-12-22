@@ -10,5 +10,6 @@ using UnityEngine;
 public struct EnemySpawnComponent :  IComponent
 {
     public float SpawnTimer;
+    public Transform SpawnerTransform;
     public SpawnerData SpawnerData;
 }

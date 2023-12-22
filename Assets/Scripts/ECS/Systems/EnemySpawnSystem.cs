@@ -31,23 +31,23 @@ public sealed class EnemySpawnSystem : UpdateSystem
             {
                 enemySpawnComponent.SpawnTimer = 0f;
 
-                SpawnWave(enemySpawnComponent.SpawnerData);
+                SpawnWave(enemySpawnComponent);
             }
         }
     }
 
-    private void SpawnWave(SpawnerData aSpawnerData)
+    private void SpawnWave(EnemySpawnComponent aSpawner)
     {
-        for (int i = 0; i < aSpawnerData.SpawnWaveAmount; i++)
+        for (int i = 0; i < aSpawner.SpawnerData.SpawnWaveAmount; i++)
         {
-            SpawnEnemy(aSpawnerData);
+            SpawnEnemy(aSpawner);
         }
     }
     
-    private void SpawnEnemy(SpawnerData aSpawnerData)
+    private void SpawnEnemy(EnemySpawnComponent aSpawner)
     {
-        ObjectFactory.CreateObject(GetEnemyToSpawn(aSpawnerData),
-            GetPositionToSpawn(aSpawnerData));
+        ObjectFactory.CreateObject(GetEnemyToSpawn(aSpawner.SpawnerData),
+            GetPositionToSpawn(aSpawner.SpawnerData), aSpawner.SpawnerTransform);
     }
     
     private GameObject GetEnemyToSpawn(SpawnerData aSpawnData)

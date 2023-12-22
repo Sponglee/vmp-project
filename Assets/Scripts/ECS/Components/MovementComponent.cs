@@ -12,5 +12,5 @@ public struct MovementComponent : IComponent
    [field: SerializeField] public float VerticalInput { get; set; }
 
     public float Speed;
-    public Rigidbody Rigidbody;
+    public Transform Transform;
 }

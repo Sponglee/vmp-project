@@ -23,10 +23,10 @@ public sealed class MovementSystem : FixedUpdateSystem
         {
             ref var movementComponent = ref entity.GetComponent<MovementComponent>();
 
-            movementComponent.Rigidbody.velocity = new Vector3(
+            movementComponent.Transform.Translate(new Vector3(
                 movementComponent.HorizontalInput * movementComponent.Speed * deltaTime,
-                movementComponent.Rigidbody.velocity.y,
-                movementComponent.VerticalInput * movementComponent.Speed * deltaTime);
+               0f,
+                movementComponent.VerticalInput * movementComponent.Speed * deltaTime));
         }
     }
 }
