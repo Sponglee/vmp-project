@@ -203,5 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8957a43de324fa0b06b740885b8c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarOffset: {x: 0, y: 0, z: 0}
-  HealthBarFill: {fileID: 7926827118218273260}
+  fill: {fileID: 7926827118218273260}
+  slider: {fileID: 0}
+  Active: 0

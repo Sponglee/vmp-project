@@ -17,13 +17,16 @@ public class Game : AntAbstractBootstrapper
     public CameraManager CameraManager;
     public GameManager GameManager;
 
+
+
+    private const string playCam = "playCam";
+    
     public override void Configure(IInjectContainer aContainer)
     {
         aContainer.RegisterSingleton<Game>(this);
         aContainer.RegisterSingleton<StateMachine>(StateMachine);
         aContainer.RegisterSingleton<CameraManager>(CameraManager);
         aContainer.RegisterSingleton<GameManager>(GameManager);
-        // .. конфигурация DI Container.
     }
 
     #endregion
@@ -37,6 +40,12 @@ public class Game : AntAbstractBootstrapper
         // InitializeScenarios();
 
         StateMachine.Initialize();
+        
+        
+        
+        //TODO: Move to appropriate spot
+        AntEngine.Get<Menu>().Get<HealthBarController>().Show();
+        CameraManager.SetLive(playCam);
     }
 
 #endregion
@@ -46,8 +55,6 @@ public class Game : AntAbstractBootstrapper
     private void InitializeScenarios()
     {
         AntEngine.Add<Gameplay>(Priority.Gameplay);
-      
-        // .. инициализация других систем
     }
 
 

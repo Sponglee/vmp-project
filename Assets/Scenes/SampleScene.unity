@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 670379885}
   - component: {fileID: 670379884}
   m_Layer: 0
-  m_Name: vCam
+  m_Name: playCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1259,6 +1259,14 @@ PrefabInstance:
     - target: {fileID: 3828847935820253664, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828847935820253675, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: serializedData.MaxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828847935820253675, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: serializedData.CurrentHealth
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3828847935820253678, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: m_RootOrder

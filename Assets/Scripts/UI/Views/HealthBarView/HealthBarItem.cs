@@ -5,28 +5,21 @@ using UnityEngine.UI;
 
 public class HealthBarItem : MonoBehaviour
 {
-
     public Image fill;
-    public Slider slider;
     public bool Active = false;
-
-    private Camera camRef;
+    
     private Transform _t;
     
-    
-    private void Awake()
-    {
-        _t = transform;
-    }
-
     public void UpdatePosition(Vector3 aPosition)
     {
-        _t.position = camRef.WorldToScreenPoint(aPosition);
+        _t ??= transform;
+
+        _t.position = aPosition;
     }
 
-    public void UpdateHealthBar(float hpValue)
+    public void UpdateHealthBar(float aValue)
     {
-        slider.value = hpValue;
+        fill.fillAmount = aValue;
     }
 
     public void SetKind(HealthBarKind aKind)
