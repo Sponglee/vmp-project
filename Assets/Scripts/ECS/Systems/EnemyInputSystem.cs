@@ -28,12 +28,12 @@ public sealed class EnemyInputSystem : UpdateSystem
         foreach (var entity in _enemyInputFilter)
         {
             ref var enemyInputComponent = ref entity.GetComponent<EnemyInputComponent>();
-            ref var enemyTagComponent = ref entity.GetComponent<EnemyTagComponent>();
+            ref var transformComponent = ref entity.GetComponent<TransformComponent>();
 
             enemyInputComponent.MovementProvider.GetData().HorizontalInput =
-                (targetPosition - enemyTagComponent.Transform.position).normalized.x;
+                (targetPosition - transformComponent.Transform.position).normalized.x;
             enemyInputComponent.MovementProvider.GetData().VerticalInput =
-                (targetPosition - enemyTagComponent.Transform.position).normalized.z;
+                (targetPosition - transformComponent.Transform.position).normalized.z;
         }
     }
 }

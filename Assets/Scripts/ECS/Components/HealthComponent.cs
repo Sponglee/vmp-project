@@ -9,6 +9,7 @@ using UnityEngine.Serialization;
 public struct HealthComponent : IComponent
 {
     public bool IsInitialized { get; set; }
+    public bool IsDead { get; set; }
     public float CurrentHealth;
     public float MaxHealth;
 }

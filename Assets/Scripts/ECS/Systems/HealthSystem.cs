@@ -13,7 +13,7 @@ public sealed class HealthSystem : UpdateSystem
 
     public override void OnAwake()
     {
-        this.filter = this.World.Filter.With<HealthComponent>().Build();
+        this.filter = this.World.Filter.With<HealthComponent>().With<TransformComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
@@ -21,11 +21,21 @@ public sealed class HealthSystem : UpdateSystem
         foreach (var entity in this.filter)
         {
             ref var healthComponent = ref entity.GetComponent<HealthComponent>();
+            ref var transformComponent = ref entity.GetComponent<TransformComponent>();
+
 
             if (!healthComponent.IsInitialized)
             {
                 healthComponent.CurrentHealth = healthComponent.MaxHealth;
                 healthComponent.IsInitialized = true;
+            }
+
+
+            if (healthComponent.CurrentHealth <= 0 && healthComponent.IsInitialized)
+            {
+                healthComponent.IsDead = true;
+                // entity.Dispose();
+                Destroy(transformComponent.Transform.gameObject);
             }
         }
     }

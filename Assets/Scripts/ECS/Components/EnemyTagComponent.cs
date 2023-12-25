@@ -8,5 +8,4 @@ using UnityEngine;
 [System.Serializable]
 public struct EnemyTagComponent : IComponent
 {
-    public Transform Transform;
 }
