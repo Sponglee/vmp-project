@@ -15,21 +15,25 @@ public sealed class EnemyInputSystem : UpdateSystem
 
     public override void OnAwake()
     {
-        _enemyInputFilter = this.World.Filter.With<EnemyInputComponent>().With<EnemyTagComponent>().Build();
-        _playerTagFilter = this.World.Filter.With<PlayerTagComponent>().Build();
+        _enemyInputFilter = this.World.Filter.With<EnemyInputComponent>().With<TransformComponent>()
+            .With<EnemyTagComponent>()
+            .Build();
+        _playerTagFilter = this.World.Filter.With<PlayerTagComponent>().With<TransformComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
-        Vector3 targetPosition = _playerTagFilter.First().GetComponent<PlayerTagComponent>().Transform.position;    
-    
+        Vector3 targetPosition = _playerTagFilter.First().GetComponent<TransformComponent>().Transform.position;
+
         foreach (var entity in _enemyInputFilter)
         {
             ref var enemyInputComponent = ref entity.GetComponent<EnemyInputComponent>();
             ref var enemyTagComponent = ref entity.GetComponent<EnemyTagComponent>();
 
-            enemyInputComponent.MovementProvider.GetData().HorizontalInput = (targetPosition - enemyTagComponent.Transform.position).normalized.x;
-            enemyInputComponent.MovementProvider.GetData().VerticalInput = (targetPosition- enemyTagComponent.Transform.position ).normalized.z;
+            enemyInputComponent.MovementProvider.GetData().HorizontalInput =
+                (targetPosition - enemyTagComponent.Transform.position).normalized.x;
+            enemyInputComponent.MovementProvider.GetData().VerticalInput =
+                (targetPosition - enemyTagComponent.Transform.position).normalized.z;
         }
     }
 }

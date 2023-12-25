@@ -11,17 +11,17 @@ public sealed class OffScreenMovementSystem : FixedUpdateSystem
 {
     private const float OFFSCREEN_TICK_TIME = 3f;
     private float tickTimer = 0f;
-    
+
     private Filter filter;
-    
+
     public override void OnAwake()
     {
-        filter = this.World.Filter.With<MovementComponent>().With<OffScreenTagComponent>().Build();
+        filter = this.World.Filter.With<MovementComponent>().With<TransformComponent>().With<OffScreenTagComponent>()
+            .Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
-
         tickTimer += deltaTime;
         if (tickTimer >= OFFSCREEN_TICK_TIME)
         {
@@ -35,14 +35,16 @@ public sealed class OffScreenMovementSystem : FixedUpdateSystem
         foreach (var entity in this.filter)
         {
             ref var movementComponent = ref entity.GetComponent<MovementComponent>();
+            ref var transformComponent = ref entity.GetComponent<TransformComponent>();
 
-            movementComponent.Transform.Translate(new Vector3(
-                movementComponent.HorizontalInput * movementComponent.Speed*OFFSCREEN_TICK_TIME ,
+            transformComponent.Transform.Translate(new Vector3(
+                movementComponent.HorizontalInput * movementComponent.Speed * OFFSCREEN_TICK_TIME,
                 0f,
-                movementComponent.VerticalInput * movementComponent.Speed*OFFSCREEN_TICK_TIME), Space.World);
+                movementComponent.VerticalInput * movementComponent.Speed * OFFSCREEN_TICK_TIME), Space.World);
 
             if (movementComponent.HorizontalInput != 0 || movementComponent.VerticalInput != 0)
-                movementComponent.Transform.rotation = Quaternion.LookRotation(new Vector3(movementComponent.HorizontalInput, 0f, movementComponent.VerticalInput), Vector3.up);
+                transformComponent.Transform.rotation = Quaternion.LookRotation(
+                    new Vector3(movementComponent.HorizontalInput, 0f, movementComponent.VerticalInput), Vector3.up);
         }
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 [System.Serializable]
-public struct EnemySpawnComponent :  IComponent
+public struct EnemySpawnComponent : IComponent
 {
     public float SpawnTimer;
     public Transform SpawnerTransform;

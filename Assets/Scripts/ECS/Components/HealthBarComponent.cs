@@ -10,7 +10,5 @@ public struct HealthBarComponent : IComponent
 {
     public bool IsInitialized;
     public int HealthBarIndex { get; set; }
-    public HealthBarKind Kind; 
-    
-    public Transform Transform;
+    public HealthBarKind Kind;
 }

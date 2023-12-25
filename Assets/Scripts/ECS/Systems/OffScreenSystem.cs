@@ -12,8 +12,8 @@ public sealed class OffScreenSystem : UpdateSystem
     private Camera _camera;
     private Filter _offscreenFilter;
     private Filter _withinscreenFilter;
-    
-    
+
+
     public override void OnAwake()
     {
         _camera = Camera.main;
@@ -26,26 +26,26 @@ public sealed class OffScreenSystem : UpdateSystem
     {
         foreach (var entity in this._withinscreenFilter)
         {
-            ref var movementComponent = ref entity.GetComponent<MovementComponent>();
+            ref var transformComponent = ref entity.GetComponent<TransformComponent>();
 
-            if (IsOffScreen(movementComponent))
+            if (IsOffScreen(transformComponent))
             {
                 entity.AddComponent<OffScreenTagComponent>();
             }
         }
-        
+
         foreach (var entity in this._offscreenFilter)
         {
-            ref var movementComponent = ref entity.GetComponent<MovementComponent>();
+            ref var transformComponent = ref entity.GetComponent<TransformComponent>();
 
-            if (!IsOffScreen(movementComponent))
+            if (!IsOffScreen(transformComponent))
             {
                 entity.RemoveComponent<OffScreenTagComponent>();
             }
         }
     }
 
-    private bool IsOffScreen(MovementComponent aComponent)
+    private bool IsOffScreen(TransformComponent aComponent)
     {
         Vector3 viewportPoint = _camera.WorldToViewportPoint(aComponent.Transform.position);
 

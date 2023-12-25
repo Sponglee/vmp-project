@@ -10,29 +10,32 @@ using Unity.IL2CPP.CompilerServices;
 public sealed class MovementSystem : FixedUpdateSystem
 {
     private const float LOOK_SPEED_SMOOTHING = 0.5f;
-    
+
     private Filter filter;
-    
+
     public override void OnAwake()
     {
-        filter = this.World.Filter.With<MovementComponent>().Without<OffScreenTagComponent>().Build();
+        filter = this.World.Filter.With<MovementComponent>().Without<OffScreenTagComponent>().With<TransformComponent>()
+            .Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
-        
         foreach (var entity in this.filter)
         {
             ref var movementComponent = ref entity.GetComponent<MovementComponent>();
+            ref var transformComponent = ref entity.GetComponent<TransformComponent>();
 
-            movementComponent.Transform.Translate(new Vector3(
+            transformComponent.Transform.Translate(new Vector3(
                 movementComponent.HorizontalInput * movementComponent.Speed * deltaTime,
                 0f,
                 movementComponent.VerticalInput * movementComponent.Speed * deltaTime), Space.World);
 
             if (movementComponent.HorizontalInput != 0 || movementComponent.VerticalInput != 0)
-                movementComponent.Transform.rotation = Quaternion.LookRotation(Vector3.Lerp(movementComponent.Transform.forward,
-                    new Vector3(movementComponent.HorizontalInput, 0f, movementComponent.VerticalInput),LOOK_SPEED_SMOOTHING), Vector3.up);
+                transformComponent.Transform.rotation = Quaternion.LookRotation(Vector3.Lerp(
+                    transformComponent.Transform.forward,
+                    new Vector3(movementComponent.HorizontalInput, 0f, movementComponent.VerticalInput),
+                    LOOK_SPEED_SMOOTHING), Vector3.up);
         }
     }
 }

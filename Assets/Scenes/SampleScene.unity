@@ -382,7 +382,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670379883}
-  m_LocalRotation: {x: 0.27984813, y: -0.3647052, z: 0.1159169, w: 0.88047624}
+  m_LocalRotation: {x: 0.27984816, y: -0.3647052, z: 0.115916885, w: 0.8804763}
   m_LocalPosition: {x: 60, y: 60, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -544,6 +544,8 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: 2e13f8fe082c94366a3bf0f6d362121f, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 8ff91d9fecb6f4bdf8bebdc81c831f9f, type: 2}
+  - enabled: 1
+    system: {fileID: 11400000, guid: 8f66b2c796c8447368c587590c453aaa, type: 2}
   fixedUpdateSystems:
   - enabled: 1
     system: {fileID: 11400000, guid: ee982151fcc4e48eda9d13f826b6d244, type: 2}
@@ -628,7 +630,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.27984813, y: -0.3647052, z: 0.1159169, w: 0.88047624}
+  m_LocalRotation: {x: 0.27984816, y: -0.3647052, z: 0.115916885, w: 0.8804763}
   m_LocalPosition: {x: 60, y: 60, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -680,6 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 969630973}
   - component: {fileID: 969630974}
+  - component: {fileID: 969630975}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -718,6 +721,20 @@ MonoBehaviour:
     SpawnTimer: 1
     SpawnerTransform: {fileID: 969630973}
     SpawnerData: {fileID: 11400000, guid: 7acb890bc8a8b4544b74155dcaafebb4, type: 2}
+--- !u!114 &969630975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969630972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03026df8186ea4a84a3544a42d366a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    <Transform>k__BackingField: {fileID: 969630973}
 --- !u!4 &978608313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3828847935820253678, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
@@ -1256,17 +1273,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1023501522}
     m_Modifications:
+    - target: {fileID: 978608323, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: serializedData.<AttackDamage>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 978608323, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: serializedData.<AttackRadius>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3828847935820253664, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828847935820253675, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
-      propertyPath: serializedData.MaxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828847935820253675, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
-      propertyPath: serializedData.CurrentHealth
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3828847935820253678, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: m_RootOrder
@@ -1310,6 +1327,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828847935820253678, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511433229906638177, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511433229906638177, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511433229906638177, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -17,7 +17,8 @@ public sealed class HealthBarSystem : UpdateSystem
     {
         _healthBarController = AntEngine.Get<Menu>().Get<HealthBarController>();
 
-        this._healthFilter = this.World.Filter.With<HealthBarComponent>().With<HealthComponent>().Build();
+        this._healthFilter = this.World.Filter.With<HealthBarComponent>().With<TransformComponent>()
+            .With<HealthComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
@@ -26,6 +27,7 @@ public sealed class HealthBarSystem : UpdateSystem
         {
             ref var healthBarComponent = ref entity.GetComponent<HealthBarComponent>();
             ref var healthComponent = ref entity.GetComponent<HealthComponent>();
+            ref var transformComponent = ref entity.GetComponent<TransformComponent>();
 
             if (!healthBarComponent.IsInitialized)
             {
@@ -34,7 +36,7 @@ public sealed class HealthBarSystem : UpdateSystem
             else
             {
                 _healthBarController.UpdateBarPosition(healthBarComponent.HealthBarIndex,
-                    healthBarComponent.Transform.position);
+                    transformComponent.Transform.position);
                 _healthBarController.UpdateBarValue(healthBarComponent.HealthBarIndex,
                     healthComponent.CurrentHealth / healthComponent.MaxHealth);
             }

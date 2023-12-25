@@ -43,12 +43,13 @@ public sealed class EnemySpawnSystem : UpdateSystem
             SpawnEnemy(aSpawner);
         }
     }
-    
+
     private void SpawnEnemy(EnemySpawnComponent aSpawner)
     {
-        ObjectFactory.CreateObject(GetEnemyToSpawn(aSpawner.SpawnerData), aSpawner.SpawnerTransform, GetPositionToSpawn(aSpawner.SpawnerData));
+        ObjectFactory.CreateObject(GetEnemyToSpawn(aSpawner.SpawnerData), aSpawner.SpawnerTransform,
+            GetPositionToSpawn(aSpawner.SpawnerData));
     }
-    
+
     private GameObject GetEnemyToSpawn(SpawnerData aSpawnData)
     {
         return aSpawnData.enemyPrefabs[Random.Range(0, aSpawnData.enemyPrefabs.Length)];
@@ -56,13 +57,14 @@ public sealed class EnemySpawnSystem : UpdateSystem
 
     private Vector3 GetPositionToSpawn(SpawnerData aSpawnData)
     {
-        ref var playerTag = ref _playerFilter.First().GetComponent<PlayerTagComponent>();
+        ref var transformComponent = ref _playerFilter.First().GetComponent<TransformComponent>();
 
         float angle = Random.Range(0f, 2f * Mathf.PI);
-        
+
         float x = aSpawnData.SpawnRadius * Mathf.Cos(angle);
         float z = aSpawnData.SpawnRadius * Mathf.Sin(angle);
-        
-        return playerTag.Transform.position + new Vector3(x, 0, z);;
+
+        return transformComponent.Transform.position + new Vector3(x, 0, z);
+        ;
     }
 }
