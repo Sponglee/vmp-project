@@ -35,9 +35,6 @@ public sealed class AttackSystem : UpdateSystem
             attackComponent.AttackTimer += deltaTime;
             if (attackComponent.AttackTimer >= attackComponent.AttackCooldown)
             {
-                attackComponent.Attack.Attack();
-                attackComponent.AttackTimer = 0f;
-
                 //TODO MAKE THIS A SEPARATE SYSTEM
                 Collider[] hitColliders =
                     Physics.OverlapSphere(transformComponent.Transform.position, attackComponent.AttackRadius);
@@ -67,6 +64,9 @@ public sealed class AttackSystem : UpdateSystem
                         }
                     }
                 }
+
+                attackComponent.Attack.Attack();
+                attackComponent.AttackTimer = 0f;
             }
         }
     }

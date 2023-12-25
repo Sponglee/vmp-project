@@ -18,6 +18,7 @@ public class SwingEmitter : MonoBehaviour
     public void Initialize(float aRadius)
     {
         AttackRadius = aRadius;
+        UpdateParticleSystem();
     }
 
     public void Emit()

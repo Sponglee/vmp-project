@@ -13,7 +13,7 @@ public class SwingAttack : AttackBase
 
     public override void Attack()
     {
-        base.Attack();
         SwingEmitter.Emit();
+        base.Attack();
     }
 }
