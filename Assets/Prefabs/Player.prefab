@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 3828847935820253591}
   - component: {fileID: 3828847935820253590}
   - component: {fileID: 978608323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,6 +356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 128
     <AttackRadius>k__BackingField: 10
     <AttackDamage>k__BackingField: 1
     <AttackCooldown>k__BackingField: 3

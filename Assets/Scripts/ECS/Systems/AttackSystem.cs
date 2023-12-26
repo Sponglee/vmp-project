@@ -37,7 +37,8 @@ public sealed class AttackSystem : UpdateSystem
             {
                 //TODO MAKE THIS A SEPARATE SYSTEM
                 Collider[] hitColliders =
-                    Physics.OverlapSphere(transformComponent.Transform.position, attackComponent.AttackRadius);
+                    Physics.OverlapSphere(transformComponent.Transform.position, attackComponent.AttackRadius,
+                        attackComponent.LayerMask);
 
                 if (hitColliders != null)
                 {

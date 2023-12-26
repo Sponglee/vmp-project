@@ -9,16 +9,17 @@ using Unity.IL2CPP.CompilerServices;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(HealthSystem))]
 public sealed class HealthSystem : UpdateSystem
 {
-    private Filter filter;
+    private Filter _healthFilter;
 
     public override void OnAwake()
     {
-        this.filter = this.World.Filter.With<HealthComponent>().With<TransformComponent>().Build();
+        this._healthFilter = this.World.Filter.With<HealthComponent>().With<TransformComponent>()
+            .Without<DeathComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
-        foreach (var entity in this.filter)
+        foreach (var entity in this._healthFilter)
         {
             ref var healthComponent = ref entity.GetComponent<HealthComponent>();
             ref var transformComponent = ref entity.GetComponent<TransformComponent>();
@@ -34,8 +35,10 @@ public sealed class HealthSystem : UpdateSystem
             if (healthComponent.CurrentHealth <= 0 && healthComponent.IsInitialized)
             {
                 healthComponent.IsDead = true;
-                // entity.Dispose();
-                Destroy(transformComponent.Transform.gameObject);
+
+                entity.RemoveComponent<MovementComponent>();
+                entity.RemoveComponent<AttackComponent>();
+                entity.AddComponent<DeathComponent>();
             }
         }
     }
