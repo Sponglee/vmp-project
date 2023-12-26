@@ -9,6 +9,7 @@ using UnityEngine;
 public struct HealthBarComponent : IComponent
 {
     public bool IsInitialized;
+    public Vector3 HealthBarOffset;
     public int HealthBarIndex { get; set; }
     public HealthBarKind Kind;
 }

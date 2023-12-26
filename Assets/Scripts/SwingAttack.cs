@@ -8,12 +8,14 @@ public class SwingAttack : AttackBase
 
     public override void InitializeAttack(float attackRadius)
     {
-        SwingEmitter.Initialize(attackRadius);
+        if (SwingEmitter != null)
+            SwingEmitter.Initialize(attackRadius);
     }
 
     public override void Attack()
     {
-        SwingEmitter.Emit();
+        if (SwingEmitter != null)
+            SwingEmitter.Emit();
         base.Attack();
     }
 }

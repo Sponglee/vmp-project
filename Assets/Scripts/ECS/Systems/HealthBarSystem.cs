@@ -10,20 +10,20 @@ using Unity.IL2CPP.CompilerServices;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(HealthBarSystem))]
 public sealed class HealthBarSystem : UpdateSystem
 {
-    private Filter _healthFilter;
+    private Filter _healthBarFilter;
     private HealthBarController _healthBarController;
 
     public override void OnAwake()
     {
         _healthBarController = AntEngine.Get<Menu>().Get<HealthBarController>();
 
-        this._healthFilter = this.World.Filter.With<HealthBarComponent>().With<TransformComponent>()
+        this._healthBarFilter = this.World.Filter.With<HealthBarComponent>().With<TransformComponent>()
             .With<HealthComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
-        foreach (var entity in this._healthFilter)
+        foreach (var entity in this._healthBarFilter)
         {
             ref var healthBarComponent = ref entity.GetComponent<HealthBarComponent>();
             ref var healthComponent = ref entity.GetComponent<HealthComponent>();
@@ -31,24 +31,24 @@ public sealed class HealthBarSystem : UpdateSystem
 
             if (!healthBarComponent.IsInitialized)
             {
-                InitializeBar(healthBarComponent);
+                InitializeBar(ref healthBarComponent);
             }
             else
             {
                 _healthBarController.UpdateBarPosition(healthBarComponent.HealthBarIndex,
-                    transformComponent.Transform.position);
+                    transformComponent.Transform.position + healthBarComponent.HealthBarOffset);
                 _healthBarController.UpdateBarValue(healthBarComponent.HealthBarIndex,
                     healthComponent.CurrentHealth / healthComponent.MaxHealth);
             }
 
             if (healthComponent.CurrentHealth <= 0)
             {
-                ReleaseBar(healthBarComponent);
+                ReleaseBar(ref healthBarComponent);
             }
         }
     }
 
-    public void InitializeBar(HealthBarComponent aHealthBar)
+    public void InitializeBar(ref HealthBarComponent aHealthBar)
     {
         int barIndex = _healthBarController.RequestBar(aHealthBar.Kind);
 
@@ -58,7 +58,7 @@ public sealed class HealthBarSystem : UpdateSystem
         aHealthBar.HealthBarIndex = barIndex;
     }
 
-    public void ReleaseBar(HealthBarComponent aHealthBar)
+    public void ReleaseBar(ref HealthBarComponent aHealthBar)
     {
         _healthBarController.ReleaseBar(aHealthBar.HealthBarIndex);
         aHealthBar.IsInitialized = false;
