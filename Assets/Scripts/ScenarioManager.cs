@@ -13,10 +13,10 @@ public class ScenarioManager : MonoBehaviour
         {
             if (Installers[i].name == aScenarioName)
             {
-                for (int j = 0; j < Installers[i].updateSystems.Length; j++)
-                {
-                    Installers[i].updateSystems[j].Enabled = false;
-                }
+                // for (int j = 0; j < Installers[i].updateSystems.Length; j++)
+                // {
+                //     Installers[i].updateSystems[j].Enabled = false;
+                // }
 
                 Installers[i].enabled = false;
             }
@@ -29,10 +29,10 @@ public class ScenarioManager : MonoBehaviour
         {
             if (Installers[i].name == aScenarioName)
             {
-                for (int j = 0; j < Installers[i].updateSystems.Length; j++)
-                {
-                    Installers[i].updateSystems[j].Enabled = true;
-                }
+                // for (int j = 0; j < Installers[i].updateSystems.Length; j++)
+                // {
+                //     Installers[i].updateSystems[j].Enabled = true;
+                // }
 
                 Installers[i].enabled = true;
             }

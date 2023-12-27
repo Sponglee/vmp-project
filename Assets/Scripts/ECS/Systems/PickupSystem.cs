@@ -1,3 +1,4 @@
+using Anthill.Inject;
 using DG.Tweening;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
@@ -16,15 +17,21 @@ public sealed class PickupSystem : UpdateSystem
     private Filter _pickableFilter;
     private Filter _playerFilter;
 
+    [Inject] public Game Game { get; set; }
+
 
     public override void OnAwake()
     {
+        AntInject.Inject<PickupSystem>(this);
+
         _pickableFilter = World.Filter.With<PickableComponent>().With<TransformComponent>().Build();
         _playerFilter = World.Filter.With<PlayerTagComponent>().With<TransformComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
+        if (Game.GameManager.IsPaused) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             foreach (var entity in _pickableFilter)
@@ -77,7 +84,8 @@ public sealed class PickupSystem : UpdateSystem
 
                     if (pickableComponent.Timer >= pickableComponent.PickupDuration)
                     {
-                        Destroy(transformComponent.Transform.gameObject);
+                        pickableComponent.IsTargetReached = true;
+                        Destroy(transformComponent.Transform.gameObject, 1f);
                     }
                 }
             }

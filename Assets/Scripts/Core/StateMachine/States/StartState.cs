@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class StartState : State
 {
-
     public StartState(StateMachine stateMachine) : base(stateMachine)
     {
-
     }
 
     public override void Enter()
     {
         Game.CameraManager.SetLive("startCam");
+
         base.Enter();
     }
 
@@ -24,7 +23,6 @@ public class StartState : State
 
     public override void HandleInput()
     {
-
         base.HandleInput();
     }
 
@@ -37,5 +35,4 @@ public class StartState : State
     {
         base.PhysicsUpdate();
     }
-
 }

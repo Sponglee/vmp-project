@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Anthill.Core;
+using Scellecs.Morpeh;
 using UnityEngine;
 
 public class PlayState : State
@@ -12,8 +13,13 @@ public class PlayState : State
     public Action onUserInputEnd;
 
 
+    public World World { get; set; }
+
+
     public PlayState(StateMachine stateMachine) : base(stateMachine)
     {
+        World = World.Default;
+
         //Maybe initialize joystick here and disabling it later?
     }
 
@@ -23,11 +29,17 @@ public class PlayState : State
         // Game.CameraManager.AssignFollowTarget(Game.PlayerController.transform);
         // Game.CameraManager.AssignLookAtTarget(Game.PlayerController.transform);
 
+        var menu = AntEngine.Get<Menu>();
+        menu.Get<HealthBarController>().Show();
+        menu.Get<ExperienceBarController>().Show();
         base.Enter();
     }
 
     public override void Exit()
     {
+        var menu = AntEngine.Get<Menu>();
+        menu.Get<HealthBarController>().Hide();
+        menu.Get<ExperienceBarController>().Hide();
         base.Exit();
     }
 

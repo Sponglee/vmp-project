@@ -1,3 +1,4 @@
+using Anthill.Inject;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
 using Scellecs.Morpeh.Systems;
@@ -13,14 +14,19 @@ using UnityEditor.Localization.Plugins.XLIFF.V12;
 public sealed class AttackSystem : UpdateSystem
 {
     private Filter _attackFilter;
+    [Inject] public Game Game { get; set; }
 
     public override void OnAwake()
     {
+        AntInject.Inject<AttackSystem>(this);
         this._attackFilter = this.World.Filter.With<AttackComponent>().With<TransformComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
+        if (Game.GameManager.IsPaused) return;
+
+
         foreach (var entity in this._attackFilter)
         {
             ref var attackComponent = ref entity.GetComponent<AttackComponent>();

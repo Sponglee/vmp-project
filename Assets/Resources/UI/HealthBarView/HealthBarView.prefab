@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarItemPrefab: {fileID: 7926827119581301396, guid: c19d35fd7c186480b9f0d4a46238b628, type: 3}
   container: {fileID: 1014254646642486275}
+  HealthBarItems: []
 --- !u!1 &1014254646642486276
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,8 +84,8 @@ RectTransform:
   m_Father: {fileID: 1014254646496348820}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

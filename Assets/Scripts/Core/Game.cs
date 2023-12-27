@@ -17,7 +17,7 @@ public class Game : AntAbstractBootstrapper
     public StateMachine StateMachine;
     public CameraManager CameraManager;
     public GameManager GameManager;
-
+    public ExperienceManager ExperienceManager;
     public ScenarioManager ScenarioManager;
 
 
@@ -29,6 +29,7 @@ public class Game : AntAbstractBootstrapper
         aContainer.RegisterSingleton<StateMachine>(StateMachine);
         aContainer.RegisterSingleton<CameraManager>(CameraManager);
         aContainer.RegisterSingleton<GameManager>(GameManager);
+        aContainer.RegisterSingleton<ExperienceManager>(ExperienceManager);
         aContainer.RegisterSingleton<ScenarioManager>(ScenarioManager);
     }
 

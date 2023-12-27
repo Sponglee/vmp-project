@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2996709131487074633}
   - component: {fileID: 2996709131487074635}
   - component: {fileID: 2996709131487074634}
+  - component: {fileID: 1064664726310234247}
   m_Layer: 0
   m_Name: ExpOrbBase
   m_TagString: Untagged
@@ -154,3 +155,19 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+--- !u!114 &1064664726310234247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996709131487074638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138482fb5d74048ed91cdce443ec1b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    ExperienceGain: 1
+    <ExpFx>k__BackingField: {fileID: 2729462236606921381, guid: 6e080f1e822a74d0992cab4b758d70b1, type: 3}
+    <IsDepleted>k__BackingField: 0

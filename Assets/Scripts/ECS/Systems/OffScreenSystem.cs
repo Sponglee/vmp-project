@@ -1,3 +1,4 @@
+using Anthill.Inject;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
@@ -13,9 +14,11 @@ public sealed class OffScreenSystem : UpdateSystem
     private Filter _offscreenFilter;
     private Filter _withinscreenFilter;
 
+    [Inject] public Game Game { get; set; }
 
     public override void OnAwake()
     {
+        AntInject.Inject<OffScreenSystem>(this);
         _camera = Camera.main;
 
         _offscreenFilter = this.World.Filter.With<MovementComponent>().With<OffScreenTagComponent>().Build();
@@ -24,6 +27,9 @@ public sealed class OffScreenSystem : UpdateSystem
 
     public override void OnUpdate(float deltaTime)
     {
+        if (Game.GameManager.IsPaused) return;
+
+
         foreach (var entity in this._withinscreenFilter)
         {
             ref var transformComponent = ref entity.GetComponent<TransformComponent>();

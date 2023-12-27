@@ -1,3 +1,4 @@
+using Anthill.Inject;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
@@ -12,15 +13,19 @@ public sealed class EnemySpawnSystem : UpdateSystem
     private Filter _spawnerFilter;
     private Filter _playerFilter;
 
+    [Inject] public Game Game { get; set; }
 
     public override void OnAwake()
     {
+        AntInject.Inject<EnemySpawnSystem>(this);
         _spawnerFilter = this.World.Filter.With<EnemySpawnComponent>().Build();
         _playerFilter = this.World.Filter.With<PlayerTagComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
+        if (Game.GameManager.IsPaused) return;
+
         foreach (var entity in _spawnerFilter)
         {
             ref var enemySpawnComponent = ref entity.GetComponent<EnemySpawnComponent>();

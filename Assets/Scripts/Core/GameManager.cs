@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PauseGame();
-        IsPaused = true;
     }
 
 
@@ -57,12 +56,10 @@ public class GameManager : MonoBehaviour
             if (IsPaused)
             {
                 StartGame();
-                IsPaused = false;
             }
             else
             {
                 PauseGame();
-                IsPaused = true;
             }
         }
     }
@@ -70,20 +67,26 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Game.StateMachine.ChangeState(StateEnum.PlayState);
+        if (!IsPaused) return;
+        IsPaused = false;
 
-        Game.ScenarioManager.EnableScenario("Gameplay");
-        Game.ScenarioManager.EnableScenario("Input");
-        Game.ScenarioManager.EnableScenario("UI");
+        // Game.ScenarioManager.EnableScenario("Level");
+        // Game.ScenarioManager.EnableScenario("Input");
+        // Game.ScenarioManager.EnableScenario("UI");
+
+        Game.StateMachine.ChangeState(StateEnum.PlayState);
     }
 
     public void PauseGame()
     {
-        Game.StateMachine.ChangeState(StateEnum.PausedState);
+        if (IsPaused) return;
+        IsPaused = true;
 
-        Game.ScenarioManager.DisableScenario("Gameplay");
-        Game.ScenarioManager.DisableScenario("Input");
-        Game.ScenarioManager.DisableScenario("UI");
+        // Game.ScenarioManager.DisableScenario("Level");
+        // Game.ScenarioManager.DisableScenario("Input");
+        // Game.ScenarioManager.DisableScenario("UI");
+
+        Game.StateMachine.ChangeState(StateEnum.PausedState);
     }
 
     public void LevelComplete()
@@ -92,10 +95,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Game.StateMachine.ChangeState(StateEnum.FinishState);
+        if (IsPaused) return;
+        IsPaused = true;
 
-        Game.ScenarioManager.DisableScenario("Gameplay");
-        Game.ScenarioManager.DisableScenario("Input");
-        Game.ScenarioManager.DisableScenario("UI");
+        // Game.ScenarioManager.DisableScenario("Level");
+        // Game.ScenarioManager.DisableScenario("Input");
+        // Game.ScenarioManager.DisableScenario("UI");
+
+        Game.StateMachine.ChangeState(StateEnum.FinishState);
     }
 }

@@ -1,3 +1,4 @@
+using Anthill.Inject;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
@@ -15,15 +16,20 @@ public sealed class MovementSystem : FixedUpdateSystem
 
     private Vector3 direciton;
 
+    [Inject] public Game Game { get; set; }
+
 
     public override void OnAwake()
     {
+        AntInject.Inject<MovementSystem>(this);
         filter = this.World.Filter.With<MovementComponent>().Without<OffScreenTagComponent>().With<TransformComponent>()
             .Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
+        if (Game.GameManager.IsPaused) return;
+
         foreach (var entity in this.filter)
         {
             ref var movementComponent = ref entity.GetComponent<MovementComponent>();

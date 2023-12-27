@@ -19,7 +19,7 @@ public sealed class GameplaySystem : UpdateSystem
     {
         AntInject.Inject<GameplaySystem>(this);
         DeathCheck = false;
-        
+
         _playerFilter = World.Filter.With<PlayerTagComponent>().With<TransformComponent>()
             .With<PlayerInputComponent>()
             .With<DeathComponent>().Build();
@@ -27,12 +27,13 @@ public sealed class GameplaySystem : UpdateSystem
 
     public override void OnUpdate(float deltaTime)
     {
+        if (Game.GameManager.IsPaused) return;
+
         foreach (var entity in _playerFilter)
         {
             ref var deathComponent = ref entity.GetComponent<DeathComponent>();
 
             DeathCheck = deathComponent.IsInitialized;
-            Debug.Log("GAMEOVER CHECK" + deathComponent.IsInitialized);
 
             entity.RemoveComponent<PlayerInputComponent>();
         }
@@ -40,7 +41,6 @@ public sealed class GameplaySystem : UpdateSystem
 
         if (DeathCheck)
         {
-            Debug.Log("GAMEOVER " + DeathCheck);
             Game.GameManager.GameOver();
         }
     }
