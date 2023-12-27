@@ -31,21 +31,6 @@ public class GameManager : MonoBehaviour
 
     public static MenuOpenEvent OnMenuOpen = new MenuOpenEvent();
 
-
-#region private
-
-#endregion
-
-#region public
-
-#endregion
-
-#region properties
-
-#endregion
-
-#region UnityCalls
-
     public async void SlowTime(float targetScale, float targetDuration)
     {
         Time.timeScale = targetScale;
@@ -60,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        PauseGame();
+        IsPaused = true;
     }
 
 
@@ -80,17 +67,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-#endregion
-
 
     public void StartGame()
     {
         Game.StateMachine.ChangeState(StateEnum.PlayState);
+
+        Game.ScenarioManager.EnableScenario("Gameplay");
+        Game.ScenarioManager.EnableScenario("Input");
+        Game.ScenarioManager.EnableScenario("UI");
     }
 
     public void PauseGame()
     {
         Game.StateMachine.ChangeState(StateEnum.PausedState);
+
+        Game.ScenarioManager.DisableScenario("Gameplay");
+        Game.ScenarioManager.DisableScenario("Input");
+        Game.ScenarioManager.DisableScenario("UI");
     }
 
     public void LevelComplete()
@@ -99,21 +92,10 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        
+        Game.StateMachine.ChangeState(StateEnum.FinishState);
 
-        for (var i = 0; i < Game.Installer.updateSystems.Length; i++)
-        {
-            Game.Installer.updateSystems[i].Enabled = false;
-        }
-
-        for (var i = 0; i < Game.Installer.fixedUpdateSystems.Length; i++)
-        {
-            Game.Installer.fixedUpdateSystems[i].Enabled = false;
-        }
+        Game.ScenarioManager.DisableScenario("Gameplay");
+        Game.ScenarioManager.DisableScenario("Input");
+        Game.ScenarioManager.DisableScenario("UI");
     }
-
-
-#region Private Methods
-
-#endregion
 }

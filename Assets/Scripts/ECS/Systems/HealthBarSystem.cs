@@ -1,3 +1,4 @@
+using System;
 using Anthill.Core;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
@@ -19,6 +20,24 @@ public sealed class HealthBarSystem : UpdateSystem
 
         this._healthBarFilter = this.World.Filter.With<HealthBarComponent>().With<TransformComponent>()
             .With<HealthComponent>().Build();
+    }
+
+    public override void Dispose()
+    {
+        Debug.Log("DISPOSE");
+        _healthBarController.Hide();
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("DISABLE");
+        _healthBarController.Hide();
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("ENABLE");
+        _healthBarController.Show();
     }
 
     public override void OnUpdate(float deltaTime)

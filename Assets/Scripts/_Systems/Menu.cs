@@ -13,7 +13,7 @@ public class Menu : AntScenario
 
         Add<HealthBarController>();
 
-        // .. добавляйте здесь любые системы в рамках меню
+       
     }
 
     public override void RemovedFromEngine()

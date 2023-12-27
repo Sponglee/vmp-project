@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PausedState : State
 {
-
     public PausedState(StateMachine stateMachine) : base(stateMachine)
     {
-
     }
 
     public override void Enter()
@@ -25,7 +23,6 @@ public class PausedState : State
 
     public override void HandleInput()
     {
-
     }
 
     public override void LogicUpdate()
@@ -37,5 +34,4 @@ public class PausedState : State
     {
         base.PhysicsUpdate();
     }
-
 }

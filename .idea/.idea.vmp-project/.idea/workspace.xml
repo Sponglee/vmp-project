@@ -5,24 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a51a0193-e0fa-4d18-9b2d-927256d15433" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/GameSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/GameSettings.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_C White.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/JMO Assets/Cartoon FX (legacy)/CFX Prefabs/Hits/CFX_Hit_C White.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExternalAssets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Impacts/CFXR Hit A (Red).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExternalAssets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Impacts/CFXR Hit A (Red).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ORB.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ORB.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/AttackComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/AttackComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/CachedDamageComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/CachedDamageComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/DeathComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/DeathComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/AttackSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/AttackSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/DamageSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/DamageSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/DeathSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/DeathSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/StateEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/StateEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/StateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/States/PausedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/States/PausedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/States/PlayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/States/PlayState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/GameplaySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/GameplaySystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/HealthBarSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/HealthBarSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/MovementSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/MovementSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/_Systems/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/_Systems/Menu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +27,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/ScenarioManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/solidhinken/Documents/GitHub/vmp-project/Assets/Scripts/Core/Game.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/Game.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Components/AttackComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Components/CachedDamageComponent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -72,7 +68,10 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.codewriter.triinspector@6a5af4e687/Editor.Extras/Drawers/OnValueChangedDrawer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Core/EntityExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Core/Stash.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Core/SystemsGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Core/SystemsGroupExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Core/World.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Core/WorldExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Unity/BaseInstaller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Unity/Installer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Unity/Providers/MonoProvider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -82,14 +81,18 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/AnalyzeRules/AnalyzeResultData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/DataBuilders/BuildScriptBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/DataBuilders/BuildScriptPackedMode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/DataBuilders/BuildScriptVirtualMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/FastModeInitializationOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/Data/EventDataPlayerSessionCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/Data/EventDataSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/GUI/EventGraphListView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/GUI/Graph/GraphDefinition.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/GUI/Graph/GraphLayerBackground.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/GUI/Graph/GraphLayerBarChart.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Settings/KeyDataStore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/AddressablesImpl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/ResourceManager/AsyncOperations/AsyncOperationBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/ResourceManager/AsyncOperations/AsyncOperationHandle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/ResourceManager/Diagnostics/DiagnosticEventCollector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/ResourceManager/ResourceManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/ResourceManager/ResourceProviders/AssetBundleProvider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -108,12 +111,16 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/ResourceManager/ResourceProviders/TextDataProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Runtime/ResourceManager/Util/ResourceManagerConfig.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/AddressableAssetsWindowTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/AnalyzeRules/CheckSceneDupeDependenciesTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/Build/BuildScriptFastTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/Build/BuildScriptVirtualTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/AsynchronousLoading.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/BatchBuild.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/BuildLauncher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/CustomDataBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/LoadLocation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/LoadWithLabels.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/LoadWithTask.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/HostingServices/HostingServicesManagerTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/AssetBundleProviderTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/ResourceManager/Operations/BaseOperationBehaviorTests.cs" root0="SKIP_HIGHLIGHTING" />
@@ -130,9 +137,13 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.performance.profile-analyzer@1.2.2/Editor/FrameTimeGraph.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.20.1/Editor/Interfaces/IBuildLog.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.20.1/Editor/Utilities/USerialize/DeSerializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/Editor/CoveragePreferences.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/Editor/Logging/ResultsLogger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/Editor/Utils/JsonUtils.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.1/Editor/VisualScripting.Core/Dependencies/ReorderableList/ElementAdderMenu/ElementAdderMeta.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.1/Editor/VisualScripting.Core/Dependencies/ReorderableList/ElementAdderMenu/GenericElementAdderMenuBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.1/Editor/VisualScripting.Flow/Framework/InputActionInspector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.1/Editor/VisualScripting.Flow/Units/MissingTypeUnitWidget.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Framework/Events/Animation/OnAnimatorMove.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Framework/Events/Input/InputSystem/OnInputSystemEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Framework/Time/Cooldown.cs" root0="SKIP_HIGHLIGHTING" />
@@ -140,10 +151,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/44bf85919fc94563a30118c4319535011ca00/6e/3303c46a/0200003Cpdb61.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/44bf85919fc94563a30118c4319535011ca00/ed/32b19881/02000048pdb79.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44bf85919fc94563a30118c4319535011ca00/3f/2f061462/ISystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ad098c92691f4253888dffe7e270512d1ca00/39/4862355e/UpdateSystemPair.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ad098c92691f4253888dffe7e270512d1ca00/ac/f41f9207/ISystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb900569f62341f196b7b5fe48154a92469200/b2/7944093b/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2ZrkmrSEDIROwMum7HokeP2CEDN" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -225,13 +240,14 @@
       <workItem from="1703532994022" duration="1831000" />
       <workItem from="1703595388683" duration="697000" />
       <workItem from="1703602806162" duration="10370000" />
-      <workItem from="1703669604367" duration="5110000" />
+      <workItem from="1703669604367" duration="12765000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
 </project>

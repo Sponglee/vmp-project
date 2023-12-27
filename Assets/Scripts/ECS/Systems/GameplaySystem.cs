@@ -18,8 +18,9 @@ public sealed class GameplaySystem : UpdateSystem
     public override void OnAwake()
     {
         AntInject.Inject<GameplaySystem>(this);
-
-        this._playerFilter = this.World.Filter.With<PlayerTagComponent>().With<TransformComponent>()
+        DeathCheck = false;
+        
+        _playerFilter = World.Filter.With<PlayerTagComponent>().With<TransformComponent>()
             .With<PlayerInputComponent>()
             .With<DeathComponent>().Build();
     }
@@ -31,6 +32,7 @@ public sealed class GameplaySystem : UpdateSystem
             ref var deathComponent = ref entity.GetComponent<DeathComponent>();
 
             DeathCheck = deathComponent.IsInitialized;
+            Debug.Log("GAMEOVER CHECK" + deathComponent.IsInitialized);
 
             entity.RemoveComponent<PlayerInputComponent>();
         }
@@ -38,6 +40,7 @@ public sealed class GameplaySystem : UpdateSystem
 
         if (DeathCheck)
         {
+            Debug.Log("GAMEOVER " + DeathCheck);
             Game.GameManager.GameOver();
         }
     }

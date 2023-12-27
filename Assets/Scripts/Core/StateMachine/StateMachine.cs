@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    #region Events
+#region Events
+
     public EventHandler<State> OnStateChange;
-    #endregion
+
+#endregion
+
     public StateEnum ActiveState;
+
     public State CurrentState { get; private set; }
+
     //States
     public StartState StartState { get; private set; }
     public PlayState PlayState { get; private set; }
@@ -64,6 +69,7 @@ public class StateMachine : MonoBehaviour
                 stateEnum = StateEnum.PausedState;
                 break;
         }
+
         return stateEnum;
     }
 
@@ -94,11 +100,14 @@ public class StateMachine : MonoBehaviour
             case StateEnum.PlayState:
                 state = PlayState;
                 break;
+            case StateEnum.PausedState:
+                state = PausedState;
+                break;
             case StateEnum.FinishState:
                 state = FinishState;
                 break;
         }
+
         return state;
     }
-
 }

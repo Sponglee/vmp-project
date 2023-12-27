@@ -13,6 +13,9 @@ public sealed class MovementSystem : FixedUpdateSystem
 
     private Filter filter;
 
+    private Vector3 direciton;
+
+
     public override void OnAwake()
     {
         filter = this.World.Filter.With<MovementComponent>().Without<OffScreenTagComponent>().With<TransformComponent>()
@@ -32,10 +35,16 @@ public sealed class MovementSystem : FixedUpdateSystem
                 movementComponent.VerticalInput * movementComponent.Speed * deltaTime), Space.World);
 
             if (movementComponent.HorizontalInput != 0 || movementComponent.VerticalInput != 0)
+            {
+                direciton.x = movementComponent.HorizontalInput;
+                direciton.y = 0f;
+                direciton.z = movementComponent.VerticalInput;
+
                 transformComponent.Transform.rotation = Quaternion.LookRotation(Vector3.Lerp(
                     transformComponent.Transform.forward,
-                    new Vector3(movementComponent.HorizontalInput, 0f, movementComponent.VerticalInput),
+                    direciton,
                     LOOK_SPEED_SMOOTHING), Vector3.up);
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ public class Game : AntAbstractBootstrapper
     public CameraManager CameraManager;
     public GameManager GameManager;
 
-    public Installer Installer;
+    public ScenarioManager ScenarioManager;
 
 
     private const string playCam = "playCam";
@@ -29,7 +29,7 @@ public class Game : AntAbstractBootstrapper
         aContainer.RegisterSingleton<StateMachine>(StateMachine);
         aContainer.RegisterSingleton<CameraManager>(CameraManager);
         aContainer.RegisterSingleton<GameManager>(GameManager);
-        aContainer.RegisterSingleton<Installer>(Installer);
+        aContainer.RegisterSingleton<ScenarioManager>(ScenarioManager);
     }
 
 #endregion
@@ -40,23 +40,7 @@ public class Game : AntAbstractBootstrapper
     {
         AntEngine.Add<Menu>(Priority.Menu);
 
-        // InitializeScenarios();
-
         StateMachine.Initialize();
-
-
-        //TODO: Move to appropriate spot
-        AntEngine.Get<Menu>().Get<HealthBarController>().Show();
-        CameraManager.SetLive(playCam);
-    }
-
-#endregion
-
-#region Private Methods
-
-    private void InitializeScenarios()
-    {
-        AntEngine.Add<Gameplay>(Priority.Gameplay);
     }
 
 #endregion

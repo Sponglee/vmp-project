@@ -3,17 +3,22 @@ using Anthill.Inject;
 public abstract class State
 {
     [Inject] public Game Game { get; set; }
-    #region Constructor
+
+#region Constructor
+
     protected State(StateMachine stateMachine)
     {
         AntInject.Inject<State>(this);
         _stateMachine = stateMachine;
     }
-    #endregion
 
-    #region Fields
+#endregion
+
+#region Fields
+
     protected StateMachine _stateMachine;
-    #endregion
+
+#endregion
 
     public virtual void Enter()
     {
@@ -22,17 +27,14 @@ public abstract class State
 
     public virtual void HandleInput()
     {
-
     }
 
     public virtual void LogicUpdate()
     {
-
     }
 
     public virtual void PhysicsUpdate()
     {
-
     }
 
     public virtual void Exit()
