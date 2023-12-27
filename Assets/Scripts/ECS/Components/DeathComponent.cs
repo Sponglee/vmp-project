@@ -8,4 +8,7 @@ using UnityEngine.Serialization;
 [System.Serializable]
 public struct DeathComponent : IComponent
 {
+    public bool IsInitialized;
+    public float Timer { get; set; }
+    public float DeathDelay;
 }

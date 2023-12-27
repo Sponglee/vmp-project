@@ -1,3 +1,4 @@
+using Anthill.Inject;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
@@ -11,8 +12,11 @@ public sealed class DeathSystem : UpdateSystem
 {
     private Filter _deadFilter;
 
+    [Inject] public Game Game { get; set; }
+
     public override void OnAwake()
     {
+        AntInject.Inject<DeathSystem>(this);
         this._deadFilter = this.World.Filter.With<DeathComponent>().With<TransformComponent>().Build();
     }
 
@@ -23,8 +27,19 @@ public sealed class DeathSystem : UpdateSystem
             ref var deathComponent = ref entity.GetComponent<DeathComponent>();
             ref var transformComponent = ref entity.GetComponent<TransformComponent>();
 
+            if (!deathComponent.IsInitialized)
+            {
+                deathComponent.DeathDelay = Game.GameManager.GameSettings.DeathDelay;
+                deathComponent.IsInitialized = true;
+            }
 
-            Destroy(transformComponent.Transform.gameObject);
+            deathComponent.Timer += deltaTime;
+
+
+            if (deathComponent.Timer >= deathComponent.DeathDelay)
+            {
+                Destroy(transformComponent.Transform.gameObject);
+            }
         }
     }
 }

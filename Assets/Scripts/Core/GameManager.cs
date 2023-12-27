@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Anthill.Core;
 using Anthill.Inject;
 using Cinemachine;
+using Scellecs.Morpeh;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,30 +15,36 @@ public class GameManager : MonoBehaviour
 {
     [Inject] public Game Game { get; set; }
 
-    #region Events
-    public class GameFinishedEvent : UnityEvent<bool> { };
+    public GameSettings GameSettings;
+    public bool IsPaused = true;
+
+
+    public class GameFinishedEvent : UnityEvent<bool>
+    {
+    };
+
     public static GameFinishedEvent OnGameFinished = new GameFinishedEvent();
-    public class MenuOpenEvent : UnityEvent<bool> { };
+
+    public class MenuOpenEvent : UnityEvent<bool>
+    {
+    };
+
     public static MenuOpenEvent OnMenuOpen = new MenuOpenEvent();
 
 
-    public bool IsPaused = true;
+#region private
 
-    #endregion
+#endregion
 
-    #region private
+#region public
 
-    #endregion
+#endregion
 
-    #region public
+#region properties
 
-    #endregion
+#endregion
 
-    #region properties
-
-    #endregion
-
-    #region UnityCalls
+#region UnityCalls
 
     public async void SlowTime(float targetScale, float targetDuration)
     {
@@ -52,7 +60,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       
     }
 
 
@@ -72,33 +79,41 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    #endregion
+
+#endregion
 
 
     public void StartGame()
     {
-       
         Game.StateMachine.ChangeState(StateEnum.PlayState);
     }
 
     public void PauseGame()
     {
-       
         Game.StateMachine.ChangeState(StateEnum.PausedState);
     }
 
     public void LevelComplete()
     {
-
     }
 
     public void GameOver()
     {
+        
 
+        for (var i = 0; i < Game.Installer.updateSystems.Length; i++)
+        {
+            Game.Installer.updateSystems[i].Enabled = false;
+        }
+
+        for (var i = 0; i < Game.Installer.fixedUpdateSystems.Length; i++)
+        {
+            Game.Installer.fixedUpdateSystems[i].Enabled = false;
+        }
     }
 
 
-    #region Private Methods
+#region Private Methods
 
-    #endregion
+#endregion
 }

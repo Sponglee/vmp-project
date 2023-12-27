@@ -1,14 +1,12 @@
 using Scellecs.Morpeh;
 using Unity.IL2CPP.CompilerServices;
-using Unity.VisualScripting;
-using UnityEngine;
+using UnityEngine.Serialization;
 
 [Il2CppSetOption(Option.NullChecks, false)]
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 [System.Serializable]
-public struct CachedDamageComponent : IComponent
+public struct GameOverComponent : IComponent
 {
-    [field: SerializeField] public float DamageCached;
-    [field: SerializeField] public GameObject HitFx { get; set; }
+    public bool IsInitialized;
 }

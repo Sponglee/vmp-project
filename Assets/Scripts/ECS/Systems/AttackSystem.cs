@@ -12,16 +12,16 @@ using UnityEditor.Localization.Plugins.XLIFF.V12;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(AttackSystem))]
 public sealed class AttackSystem : UpdateSystem
 {
-    private Filter filter;
+    private Filter _attackFilter;
 
     public override void OnAwake()
     {
-        this.filter = this.World.Filter.With<AttackComponent>().With<TransformComponent>().Build();
+        this._attackFilter = this.World.Filter.With<AttackComponent>().With<TransformComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
-        foreach (var entity in this.filter)
+        foreach (var entity in this._attackFilter)
         {
             ref var attackComponent = ref entity.GetComponent<AttackComponent>();
             ref var transformComponent = ref entity.GetComponent<TransformComponent>();
@@ -54,6 +54,7 @@ public sealed class AttackSystem : UpdateSystem
                                 ref targetEntitiy.Entity.GetComponent<CachedDamageComponent>();
 
                             cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
+                            cachedDamageComponent.HitFx = attackComponent.HitFx;
                         }
                         else
                         {
@@ -62,6 +63,7 @@ public sealed class AttackSystem : UpdateSystem
                                 ref targetEntitiy.Entity.GetComponent<CachedDamageComponent>();
 
                             cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
+                            cachedDamageComponent.HitFx = attackComponent.HitFx;
                         }
                     }
                 }

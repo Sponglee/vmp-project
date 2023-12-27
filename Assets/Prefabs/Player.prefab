@@ -194,6 +194,8 @@ GameObject:
   - component: {fileID: 3828847935820253591}
   - component: {fileID: 3828847935820253590}
   - component: {fileID: 978608323}
+  - component: {fileID: 1092679559}
+  - component: {fileID: 3824519319364091375}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -300,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     CurrentHealth: 0
-    MaxHealth: 100
+    MaxHealth: 10000
 --- !u!114 &3828847935820253674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,10 +361,41 @@ MonoBehaviour:
     LayerMask:
       serializedVersion: 2
       m_Bits: 128
+    <HitFx>k__BackingField: {fileID: 0}
     <AttackRadius>k__BackingField: 10
     <AttackDamage>k__BackingField: 1
     <AttackCooldown>k__BackingField: 3
     Attack: {fileID: 616484384}
+--- !u!114 &1092679559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828847935820253664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769b89d4b26664d688d14e7323129bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    IsInitialized: 0
+    HealthBarOffset: {x: 0, y: 3, z: 0}
+    Kind: 0
+--- !u!114 &3824519319364091375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828847935820253664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c6bf35253974c89b37f270844e983f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedData:
+    IsInitialized: 0
 --- !u!1 &3828847936049535611
 GameObject:
   m_ObjectHideFlags: 0

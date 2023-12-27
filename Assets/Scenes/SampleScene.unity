@@ -175,6 +175,7 @@ MonoBehaviour:
   StateMachine: {fileID: 2111952498}
   CameraManager: {fileID: 381816910}
   GameManager: {fileID: 1475251517}
+  Installer: {fileID: 819156321}
 --- !u!1 &347843145
 GameObject:
   m_ObjectHideFlags: 3
@@ -554,6 +555,8 @@ MonoBehaviour:
     system: {fileID: 11400000, guid: edb4c0c7e6f9749cb9d3ebf3440b581a, type: 2}
   - enabled: 1
     system: {fileID: 11400000, guid: 8d66df0e4a53c4be194f439d3e7c239c, type: 2}
+  - enabled: 1
+    system: {fileID: 11400000, guid: 5193b31b144ec4674a50b7f01e3288dd, type: 2}
   fixedUpdateSystems:
   - enabled: 1
     system: {fileID: 11400000, guid: ee982151fcc4e48eda9d13f826b6d244, type: 2}
@@ -796,27 +799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd65b44f49544cc0875528da0f194855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1092679548 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3828847935820253664, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
-  m_PrefabInstance: {fileID: 3828847935992998231}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1092679559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092679548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769b89d4b26664d688d14e7323129bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializedData:
-    IsInitialized: 0
-    HealthBarOffset: {x: 0, y: 1, z: 0}
-    Kind: 0
 --- !u!1 &1145909771
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6aa309db6c2684da5bde24d463f6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameSettings: {fileID: 11400000, guid: da573d56fd41d4a14bc4f5bfa2e125a8, type: 2}
   IsPaused: 1
 --- !u!1 &1584898118
 GameObject:
@@ -1289,13 +1272,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1023501522}
     m_Modifications:
+    - target: {fileID: 978608323, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: serializedData.<HitFx>k__BackingField
+      value: 
+      objectReference: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
     - target: {fileID: 3828847935820253664, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3828847935820253675, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: serializedData.MaxHealth
-      value: 10000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3828847935820253678, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: m_RootOrder

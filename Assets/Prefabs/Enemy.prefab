@@ -259,6 +259,7 @@ MonoBehaviour:
     LayerMask:
       serializedVersion: 2
       m_Bits: 64
+    <HitFx>k__BackingField: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
     <AttackRadius>k__BackingField: 2
     <AttackDamage>k__BackingField: 1
     <AttackCooldown>k__BackingField: 1
