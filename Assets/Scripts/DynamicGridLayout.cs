@@ -9,7 +9,8 @@ public class DynamicGridLayout : MonoBehaviour
 
     private int columns;
 
-    private void OnValidate()
+    [ContextMenu("UpdateLayout")]
+    public void UpdateGridLayout()
     {
         UpdateLayourGroup();
     }

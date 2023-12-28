@@ -15,6 +15,7 @@ public class ChoiceState : State
 
         var menu = AntEngine.Get<Menu>();
         menu.Get<ChoiceController>().Show();
+        menu.Get<ChoiceController>().InitializeChoice(GameSettings.GetReference<ChoiceLibrary>().GetChoices());
         base.Enter();
     }
 

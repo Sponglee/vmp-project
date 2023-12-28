@@ -1,26 +1,36 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class ChoiceButtonItem : MonoBehaviour
 {
-    public ChoiceData ChoiceDataRef;
+    [HideInInspector] public ChoiceData ChoiceDataRef;
     public Button SelectButton;
+    public Image ChoiceIcon;
+
+    public TMPro.TMP_Text ChoiceDescription;
 
     public event Action<ChoiceButtonItem> ChoiceItemClicked;
 
     private void Awake()
     {
-        SelectButton.clicked += ClickHandler;
+        SelectButton.onClick.AddListener(ClickHandler);
     }
 
     private void OnDestroy()
     {
-        SelectButton.clicked -= ClickHandler;
+        SelectButton.onClick.RemoveListener(ClickHandler);
     }
-    
+
+    public void InitializeChoiceItem(ChoiceData aChoiceData)
+    {
+        ChoiceDataRef = aChoiceData;
+        ChoiceIcon.sprite = ChoiceDataRef.AbilityIcon;
+        ChoiceDescription.text = ChoiceDataRef.AbilityDescription;
+    }
+
+
     private void ClickHandler()
     {
         ChoiceItemClicked?.Invoke(this);
