@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d9cc1e527e22483ca0b4ba5e6ac5fcd, type: 3}
-  m_Name: SpawnerData
+  m_Script: {fileID: 11500000, guid: a3487d8b28d7248c0a0567f79ed79f75, type: 3}
+  m_Name: AbilitySettings
   m_EditorClassIdentifier: 
-  SpawnRadius: 30
-  SpawnTime: 0.2
-  SpawnWaveAmount: 5
-  enemyPrefabs:
-  - {fileID: 9128319128292686956, guid: 42822457d02d7451eb86dc0171512b75, type: 3}

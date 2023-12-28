@@ -4,4 +4,5 @@ public enum StateEnum
     PlayState,
     PausedState,
     FinishState,
+    ChoiceState
 }

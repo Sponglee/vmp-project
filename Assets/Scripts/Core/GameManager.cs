@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
 {
     [Inject] public Game Game { get; set; }
 
-    public GameSettings GameSettings;
     public bool IsPaused = true;
 
 
@@ -55,7 +54,7 @@ public class GameManager : MonoBehaviour
         {
             if (IsPaused)
             {
-                StartGame();
+                StartGameplay();
             }
             else
             {
@@ -65,14 +64,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void StartGame()
+    public void StartGameplay()
     {
         if (!IsPaused) return;
         IsPaused = false;
-
-        // Game.ScenarioManager.EnableScenario("Level");
-        // Game.ScenarioManager.EnableScenario("Input");
-        // Game.ScenarioManager.EnableScenario("UI");
 
         Game.StateMachine.ChangeState(StateEnum.PlayState);
     }
@@ -82,11 +77,16 @@ public class GameManager : MonoBehaviour
         if (IsPaused) return;
         IsPaused = true;
 
-        // Game.ScenarioManager.DisableScenario("Level");
-        // Game.ScenarioManager.DisableScenario("Input");
-        // Game.ScenarioManager.DisableScenario("UI");
-
         Game.StateMachine.ChangeState(StateEnum.PausedState);
+    }
+
+    public void ChoiceWindow()
+    {
+        if (IsPaused) return;
+        IsPaused = true;
+
+
+        Game.StateMachine.ChangeState(StateEnum.ChoiceState);
     }
 
     public void LevelComplete()
@@ -97,10 +97,6 @@ public class GameManager : MonoBehaviour
     {
         if (IsPaused) return;
         IsPaused = true;
-
-        // Game.ScenarioManager.DisableScenario("Level");
-        // Game.ScenarioManager.DisableScenario("Input");
-        // Game.ScenarioManager.DisableScenario("UI");
 
         Game.StateMachine.ChangeState(StateEnum.FinishState);
     }

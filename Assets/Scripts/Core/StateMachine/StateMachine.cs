@@ -18,6 +18,7 @@ public class StateMachine : MonoBehaviour
     public PlayState PlayState { get; private set; }
     public FinishState FinishState { get; private set; }
     public PausedState PausedState { get; private set; }
+    public ChoiceState ChoiceState { get; private set; }
 
     public void Initialize()
     {
@@ -26,6 +27,8 @@ public class StateMachine : MonoBehaviour
         PlayState = new PlayState(this);
         FinishState = new FinishState(this);
         PausedState = new PausedState(this);
+        ChoiceState = new ChoiceState(this);
+
         SetUpStartState(ActiveState);
     }
 
@@ -68,6 +71,9 @@ public class StateMachine : MonoBehaviour
             case PausedState _:
                 stateEnum = StateEnum.PausedState;
                 break;
+            case ChoiceState _:
+                stateEnum = StateEnum.ChoiceState;
+                break;
         }
 
         return stateEnum;
@@ -105,6 +111,9 @@ public class StateMachine : MonoBehaviour
                 break;
             case StateEnum.FinishState:
                 state = FinishState;
+                break;
+            case StateEnum.ChoiceState:
+                state = ChoiceState;
                 break;
         }
 

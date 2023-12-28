@@ -73,7 +73,7 @@ public sealed class ExperienceSystem : UpdateSystem
 
 
                         InitializeExperienceComponents();
-                        Game.GameManager.PauseGame();
+                        Game.GameManager.ChoiceWindow();
                     }
                 }
             }
