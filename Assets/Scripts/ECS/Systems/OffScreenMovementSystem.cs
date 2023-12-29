@@ -1,3 +1,4 @@
+using Anthill.Inject;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
 using UnityEngine;
@@ -13,15 +14,20 @@ public sealed class OffScreenMovementSystem : FixedUpdateSystem
     private float tickTimer = 0f;
 
     private Filter filter;
+    [Inject] public Game Game { get; set; }
 
     public override void OnAwake()
     {
+        AntInject.Inject<OffScreenMovementSystem>(this);
         filter = this.World.Filter.With<MovementComponent>().With<TransformComponent>().With<OffScreenTagComponent>()
             .Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
+        if (Game.GameManager.IsPaused) return;
+
+
         tickTimer += deltaTime;
         if (tickTimer >= OFFSCREEN_TICK_TIME)
         {

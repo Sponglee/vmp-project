@@ -6,11 +6,11 @@ public class FinishState : State
 {
     public FinishState(StateMachine stateMachine) : base(stateMachine)
     {
-
     }
 
     public override void Enter()
     {
+        Game.CameraManager.SetLive("pauseCam");
         base.Enter();
     }
 
@@ -33,5 +33,4 @@ public class FinishState : State
     {
         base.PhysicsUpdate();
     }
-
 }

@@ -27,7 +27,7 @@ public sealed class PlayerInputSystem : UpdateSystem
             ref var playerInputComponent = ref entity.GetComponent<PlayerInputComponent>();
 
             Vector3 dir = _cameraTransform.rotation *
-                          new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+                          new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
 
             playerInputComponent.MovementProvider.GetData().HorizontalInput = dir.x;
             playerInputComponent.MovementProvider.GetData().VerticalInput = dir.z;

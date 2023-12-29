@@ -22,10 +22,8 @@ public class ChoiceController : ISystem
     {
     }
 
-    public void InitializeChoice(ChoiceData[] aChoiceDatas)
+    public async void InitializeChoice(ChoiceData[] aChoiceDatas)
     {
-        ClearButtons();
-
         for (int i = 0; i < aChoiceDatas.Length; i++)
         {
             ChoiceButtonItem tmpItem =
@@ -33,8 +31,11 @@ public class ChoiceController : ISystem
 
             tmpItem.InitializeChoiceItem(aChoiceDatas[i]);
             tmpItem.ChoiceItemClicked += OnChoicePickedHandler;
-            _view.ChoiceButtonItems.Add(tmpItem);
+
+            if (!_view.ChoiceButtonItems.Contains(tmpItem))
+                _view.ChoiceButtonItems.Add(tmpItem);
         }
+
 
         _view.DynamicGridLayout.UpdateGridLayout();
     }
@@ -42,6 +43,7 @@ public class ChoiceController : ISystem
     public void Show()
     {
         _view.Show();
+        ClearButtons();
     }
 
     public void Hide()
@@ -51,16 +53,19 @@ public class ChoiceController : ISystem
 
     private void ClearButtons()
     {
-        for (int i = _view.ChoiceButtonItems.Count - 1; i >= 0; i--)
+        for (int i = _view.container.childCount - 1; i >= 0; i--)
         {
-            _view.ChoiceButtonItems[i].ChoiceItemClicked -= OnChoicePickedHandler;
-
-            GameObject.Destroy(_view.ChoiceButtonItems[i].gameObject);
+            ChoiceButtonItem tmpItem = _view.container.GetChild(i).GetComponent<ChoiceButtonItem>();
+            tmpItem.ChoiceItemClicked -= OnChoicePickedHandler;
+            GameObject.Destroy(tmpItem.gameObject);
         }
+
+        _view.ChoiceButtonItems.Clear();
     }
 
     private void OnChoicePickedHandler(ChoiceButtonItem aChoice)
     {
         Game.GameManager.StartGameplay();
+        ClearButtons();
     }
 }

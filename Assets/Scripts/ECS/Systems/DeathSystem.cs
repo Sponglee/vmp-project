@@ -29,7 +29,7 @@ public sealed class DeathSystem : UpdateSystem
 
             if (!deathComponent.IsInitialized)
             {
-                // deathComponent.DeathDelay = GameSettings.DeathDelay;
+                deathComponent.DeathDelay = GameSettings.GetReference<Settings>().DeathDelay;
                 deathComponent.IsInitialized = true;
             }
 

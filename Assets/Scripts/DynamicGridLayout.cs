@@ -18,7 +18,6 @@ public class DynamicGridLayout : MonoBehaviour
     public void UpdateLayourGroup()
     {
         columns = gridLayoutGroup.transform.childCount;
-
         float containerWidth = gridLayoutGroup.GetComponent<RectTransform>().rect.width;
         float cellWidth = (containerWidth - ((columns - 1) * spacing)) / columns;
 

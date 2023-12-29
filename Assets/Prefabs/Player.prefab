@@ -303,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     CurrentHealth: 0
-    MaxHealth: 10000
+    MaxHealth: 30
 --- !u!114 &3828847935820253674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
     LayerMask:
       serializedVersion: 2
       m_Bits: 128
-    <HitFx>k__BackingField: {fileID: 0}
+    <HitFx>k__BackingField: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
     <AttackRadius>k__BackingField: 10
     <AttackDamage>k__BackingField: 1
     <AttackCooldown>k__BackingField: 3
