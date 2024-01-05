@@ -72,6 +72,8 @@ public sealed class ExperienceSystem : UpdateSystem
                             3f);
 
 
+                        Game.ExperienceManager.LevelUp();
+
                         InitializeExperienceComponents();
                         Game.GameManager.ChoiceWindow();
                     }
