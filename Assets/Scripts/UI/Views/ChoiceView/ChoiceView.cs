@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChoiceView : MonoBehaviour
 {
     public GameObject choiceDataPref;
+    public event Action OnStartButtonClicked;
 
     public Transform container;
     public DynamicGridLayout DynamicGridLayout;
@@ -21,5 +22,11 @@ public class ChoiceView : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+
+    private void ClickHandler()
+    {
+        OnStartButtonClicked?.Invoke();
     }
 }

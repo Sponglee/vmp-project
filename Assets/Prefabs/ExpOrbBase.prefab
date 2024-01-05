@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     <ExpValue>k__BackingField: 1
-    <PickupDuration>k__BackingField: 0.25
+    <PickupDuration>k__BackingField: 0.1
     <PickupRadius>k__BackingField: 3
     <AnimationCurve>k__BackingField:
       serializedVersion: 2

@@ -14,13 +14,16 @@ public class Menu : AntScenario
         Add<HealthBarController>();
         Add<ExperienceBarController>();
         Add<ChoiceController>();
+        Add<LobbyController>();
     }
 
     public override void RemovedFromEngine()
     {
+        base.RemovedFromEngine();
+
         Remove<HealthBarController>();
         Remove<ExperienceBarController>();
         Remove<ChoiceController>();
-        base.RemovedFromEngine();
+        Remove<LobbyController>();
     }
 }

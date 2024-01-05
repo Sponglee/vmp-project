@@ -42,6 +42,8 @@ public class Game : AntAbstractBootstrapper
         AntEngine.Add<Menu>(Priority.Menu);
 
         StateMachine.Initialize();
+
+        StateMachine.ChangeState(StateEnum.StartState);
     }
 
 #endregion

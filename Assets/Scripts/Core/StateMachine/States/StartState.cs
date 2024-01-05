@@ -11,13 +11,19 @@ public class StartState : State
 
     public override void Enter()
     {
-        Game.CameraManager.SetLive("startCam");
+        Game.CameraManager.SetLive("pauseCam");
+
+        var menu = AntEngine.Get<Menu>();
+        menu.Get<LobbyController>().Show();
 
         base.Enter();
     }
 
     public override void Exit()
     {
+        var menu = AntEngine.Get<Menu>();
+        menu.Get<LobbyController>().Hide();
+
         base.Exit();
     }
 

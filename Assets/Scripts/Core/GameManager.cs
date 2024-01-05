@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Anthill.Core;
+﻿using System.Threading.Tasks;
 using Anthill.Inject;
-using Cinemachine;
-using Scellecs.Morpeh;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
-
 
 public class GameManager : MonoBehaviour
 {
@@ -17,16 +9,15 @@ public class GameManager : MonoBehaviour
 
     public bool IsPaused = true;
 
-
     public class GameFinishedEvent : UnityEvent<bool>
     {
-    };
+    }
 
     public static GameFinishedEvent OnGameFinished = new GameFinishedEvent();
 
     public class MenuOpenEvent : UnityEvent<bool>
     {
-    };
+    }
 
     public static MenuOpenEvent OnMenuOpen = new MenuOpenEvent();
 
@@ -47,7 +38,6 @@ public class GameManager : MonoBehaviour
         PauseGame();
     }
 
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -62,7 +52,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
 
     public void StartGameplay()
     {
