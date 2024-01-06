@@ -29,8 +29,12 @@ public sealed class ExperienceSystem : UpdateSystem
         _experienceFilter = World.Filter.With<TransformComponent>()
             .With<ExperienceComponent>().With<PlayerTagComponent>().Build();
 
+        foreach (var experienceEntity in _experienceFilter)
+        {
+            ref var experienceComponent = ref experienceEntity.GetComponent<ExperienceComponent>();
 
-        InitializeExperienceComponents();
+            InitializeExperienceComponents(ref experienceComponent);
+        }
     }
 
     public override void OnUpdate(float deltaTime)
@@ -71,10 +75,7 @@ public sealed class ExperienceSystem : UpdateSystem
                                 transformComponent.Transform.position),
                             3f);
 
-
-                        Game.ExperienceManager.LevelUp();
-
-                        InitializeExperienceComponents();
+                        LevelUp(ref experienceComponent);
                         Game.GameManager.ChoiceWindow();
                     }
                 }
@@ -82,17 +83,16 @@ public sealed class ExperienceSystem : UpdateSystem
         }
     }
 
-    private void InitializeExperienceComponents()
+    private void LevelUp(ref ExperienceComponent aExperienceComponent)
     {
-        foreach (var experienceEntity in _experienceFilter)
-        {
-            ref var experienceComponent = ref experienceEntity.GetComponent<ExperienceComponent>();
+        Game.ExperienceManager.LevelUp(ref aExperienceComponent);
+        InitializeExperienceComponents(ref aExperienceComponent);
+    }
 
-            experienceComponent.CurrentExperience = Game.ExperienceManager.GetCurrentExperience();
-            experienceComponent.MaxExperience = Game.ExperienceManager.GetMaxExperience();
-
-            _experienceBarController.UpdateBarValue(experienceComponent.CurrentExperience /
-                                                    experienceComponent.MaxExperience);
-        }
+    private void InitializeExperienceComponents(ref ExperienceComponent aExperienceComponent)
+    {
+        Game.ExperienceManager.InitializeExperience(ref aExperienceComponent);
+        _experienceBarController.UpdateBarValue(aExperienceComponent.CurrentExperience /
+                                                aExperienceComponent.MaxExperience);
     }
 }

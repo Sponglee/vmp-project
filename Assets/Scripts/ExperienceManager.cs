@@ -5,36 +5,26 @@ public class ExperienceManager : MonoBehaviour
 {
     [Inject] public Game Game { get; set; }
 
-    public float currentExperience;
-    public float currentMaxExperience;
-    public int currentLevel = 0;
-
     private ExperienceSettings _experienceSettings;
 
     private void Awake()
     {
         AntInject.InjectMono<ExperienceManager>(this);
         _experienceSettings = GameSettings.GetReference<ExperienceSettings>();
-
-        currentLevel = PlayerPrefs.GetInt("CurrentPlayer", 0);
-        currentMaxExperience = _experienceSettings.GetMaxExperience(currentLevel);
     }
 
-    public void LevelUp()
+    public void InitializeExperience(ref ExperienceComponent aComponent)
     {
-        currentLevel++;
-        PlayerPrefs.SetInt("CurrentPlayer", currentLevel);
-
-        currentMaxExperience = _experienceSettings.GetMaxExperience(currentLevel);
+        aComponent.CurrentExperience = 0f;
+        aComponent.CurrentLevel = PlayerPrefs.GetInt(string.Format("CurrentPlayer{{0}}", aComponent.Id), 0);
+        aComponent.MaxExperience = _experienceSettings.GetMaxExperience(aComponent.CurrentLevel);
     }
 
-    public float GetCurrentExperience()
+    public void LevelUp(ref ExperienceComponent aComponent)
     {
-        return currentExperience;
-    }
+        aComponent.CurrentLevel++;
+        PlayerPrefs.SetInt(string.Format("CurrentPlayer{{0}}", aComponent.Id), aComponent.CurrentLevel);
 
-    public float GetMaxExperience()
-    {
-        return currentMaxExperience;
+        aComponent.MaxExperience = _experienceSettings.GetMaxExperience(aComponent.CurrentLevel);
     }
 }

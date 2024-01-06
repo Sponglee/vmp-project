@@ -9,7 +9,9 @@ using UnityEngine;
 [System.Serializable]
 public struct ExperienceComponent : IComponent
 {
+    [field: SerializeField] public float Id { get; set; }
     [field: SerializeField] public GameObject LevelUpFx { get; set; }
     [field: SerializeField] public float CurrentExperience { get; set; }
     [field: SerializeField] public float MaxExperience { get; set; }
+    [field: SerializeField] public int CurrentLevel { get; set; }
 }
