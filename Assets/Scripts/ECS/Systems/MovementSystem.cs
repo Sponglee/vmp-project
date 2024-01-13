@@ -1,6 +1,7 @@
 using Anthill.Inject;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Unity.Collections;
 using UnityEngine;
 using Unity.IL2CPP.CompilerServices;
 
@@ -42,6 +43,8 @@ public sealed class MovementSystem : FixedUpdateSystem
 
             if (movementComponent.HorizontalInput != 0 || movementComponent.VerticalInput != 0)
             {
+                movementComponent.IsMoving = true;
+
                 direciton.x = movementComponent.HorizontalInput;
                 direciton.y = 0f;
                 direciton.z = movementComponent.VerticalInput;
@@ -50,6 +53,10 @@ public sealed class MovementSystem : FixedUpdateSystem
                     transformComponent.Transform.forward,
                     direciton,
                     LOOK_SPEED_SMOOTHING), Vector3.up);
+            }
+            else
+            {
+                movementComponent.IsMoving = false;
             }
         }
     }
