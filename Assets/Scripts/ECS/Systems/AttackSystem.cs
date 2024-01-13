@@ -41,40 +41,7 @@ public sealed class AttackSystem : UpdateSystem
             attackComponent.AttackTimer += deltaTime;
             if (attackComponent.AttackTimer >= attackComponent.AttackCooldown)
             {
-                //TODO MAKE THIS A SEPARATE SYSTEM
-                Collider[] hitColliders =
-                    Physics.OverlapSphere(transformComponent.Transform.position, attackComponent.AttackRadius,
-                        attackComponent.LayerMask);
-
-                if (hitColliders != null)
-                {
-                    for (int i = 0; i < hitColliders.Length; i++)
-                    {
-                        EntityProvider targetEntitiy = hitColliders[i].GetComponent<EntityProvider>();
-
-                        if (targetEntitiy == null) continue;
-
-                        if (targetEntitiy.Entity.Has<CachedDamageComponent>())
-                        {
-                            ref var cachedDamageComponent =
-                                ref targetEntitiy.Entity.GetComponent<CachedDamageComponent>();
-
-                            cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
-                            cachedDamageComponent.HitFx = attackComponent.HitFx;
-                        }
-                        else
-                        {
-                            targetEntitiy.Entity.AddComponent<CachedDamageComponent>();
-                            ref var cachedDamageComponent =
-                                ref targetEntitiy.Entity.GetComponent<CachedDamageComponent>();
-
-                            cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
-                            cachedDamageComponent.HitFx = attackComponent.HitFx;
-                        }
-                    }
-                }
-
-                attackComponent.Attack.Attack();
+                attackComponent.Attack.Attack(attackComponent);
                 attackComponent.AttackTimer = 0f;
             }
         }

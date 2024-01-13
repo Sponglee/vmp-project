@@ -6,7 +6,7 @@ public class AttackBase : MonoBehaviour, IAttack
     {
     }
 
-    public virtual void Attack()
+    public virtual void Attack(AttackComponent aAttackComponent)
     {
     }
 }

@@ -1,5 +1,5 @@
 public interface IAttack
 {
     void InitializeAttack(float AttackRadius);
-    void Attack();
+    void Attack(AttackComponent aAttackComponent);
 }
