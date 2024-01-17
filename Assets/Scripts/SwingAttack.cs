@@ -6,26 +6,29 @@ using UnityEngine;
 
 public class SwingAttack : AttackBase
 {
+    public float SwingRadius = 1f;
     public SwingEmitter SwingEmitter;
     private Collider[] hitColliders;
 
-    public override void InitializeAttack(float attackRadius)
+    public override void InitializeAttack()
     {
         if (SwingEmitter != null)
-            SwingEmitter.Initialize(attackRadius);
+            SwingEmitter.Initialize(SwingRadius);
 
         hitColliders = new Collider[GameSettings.GetReference<Settings>().MaxTargetSize];
     }
 
-    public override void Attack(AttackComponent attackComponent)
+    public override void Attack(Entity entity)
     {
+        ref var attackComponent = ref entity.GetComponent<AttackComponent>();
+
         if (SwingEmitter != null)
             SwingEmitter.Emit();
 
-        base.Attack(attackComponent);
+        base.Attack(entity);
 
 
-        var size = Physics.OverlapSphereNonAlloc(transform.position, attackComponent.AttackRadius, hitColliders,
+        var size = Physics.OverlapSphereNonAlloc(transform.position, SwingRadius, hitColliders,
             attackComponent.LayerMask);
 
 

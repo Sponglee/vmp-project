@@ -85,7 +85,7 @@ public sealed class PickupSystem : UpdateSystem
                     if (pickableComponent.Timer >= pickableComponent.PickupDuration)
                     {
                         pickableComponent.IsTargetReached = true;
-                        Destroy(transformComponent.Transform.gameObject, 1f);
+                        Destroy(transformComponent.Transform.gameObject, 0.1f);
                     }
                 }
             }

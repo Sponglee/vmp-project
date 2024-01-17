@@ -1,5 +1,7 @@
+using Scellecs.Morpeh;
+
 public interface IAttack
 {
-    void InitializeAttack(float AttackRadius);
-    void Attack(AttackComponent aAttackComponent);
+    void InitializeAttack();
+    void Attack(Entity entity);
 }

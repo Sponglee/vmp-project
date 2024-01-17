@@ -10,4 +10,10 @@ using UnityEngine.Serialization;
 public struct TurretRotationComponent : IComponent
 {
     public Transform TurretPivot;
+
+
+    public void RotateToTarget(Transform aTarget)
+    {
+        TurretPivot.LookAt(aTarget.position);
+    }
 }

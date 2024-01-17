@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a51a0193-e0fa-4d18-9b2d-927256d15433" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FBX/PlayerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/PlayerController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.blend1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AttackBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AttackBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/AttackComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/AttackComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/TurretRotationComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/TurretRotationComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/AttackSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/AttackSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/PickupSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/PickupSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/IAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/Settings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SwingAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SwingAttack.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,10 +97,13 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Unity/Systems/UpdateSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.scellecs.morpeh@bb2949621f/Unity/Utils/Editor/DefineAsset.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/AnalyzeRules/AnalyzeResultData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/AnalyzeRules/CheckBundleDupeDependencies.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/DataBuilders/AddressableAssetsBundleBuildParameters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/DataBuilders/BuildScriptBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/DataBuilders/BuildScriptPackedMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/DataBuilders/BuildScriptVirtualMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/FastModeInitializationOperation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Build/Layout/BuildLayout.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/Data/EventDataPlayerSessionCollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/Data/EventDataSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Editor/Diagnostics/GUI/EventGraphListView.cs" root0="SKIP_HIGHLIGHTING" />
@@ -132,6 +138,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/AnalyzeRules/CheckSceneDupeDependenciesTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/Build/BuildScriptFastTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/Build/BuildScriptVirtualTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/ContentUpdateTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/AsynchronousLoading.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/BatchBuild.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/BuildLauncher.cs" root0="SKIP_HIGHLIGHTING" />
@@ -140,9 +147,11 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/LoadWithLabels.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/DocExampleCode/LoadWithTask.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Editor/HostingServices/HostingServicesManagerTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/AddressablesImplTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/AssetBundleProviderTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/ResourceManager/Operations/BaseOperationBehaviorTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/ResourceManager/Operations/ProviderOperationTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/ResourceManager/ResourceManagerBaseTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/ResourceManager/ResourceManagerTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.19.19/Tests/Runtime/TextDataProviderTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Components/CinemachineTrackedDolly.cs" root0="SKIP_HIGHLIGHTING" />
@@ -268,7 +277,8 @@
       <workItem from="1703841470715" duration="5178000" />
       <workItem from="1704452143481" duration="1962000" />
       <workItem from="1704465570861" duration="4191000" />
-      <workItem from="1705154384633" duration="4403000" />
+      <workItem from="1705154384633" duration="4541000" />
+      <workItem from="1705496976912" duration="1824000" />
     </task>
     <servers />
   </component>

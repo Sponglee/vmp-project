@@ -35,13 +35,13 @@ public sealed class AttackSystem : UpdateSystem
             if (!attackComponent.IsInitialized)
             {
                 attackComponent.IsInitialized = true;
-                attackComponent.Attack.InitializeAttack(attackComponent.AttackRadius);
+                attackComponent.Attack.InitializeAttack();
             }
 
             attackComponent.AttackTimer += deltaTime;
             if (attackComponent.AttackTimer >= attackComponent.AttackCooldown)
             {
-                attackComponent.Attack.Attack(attackComponent);
+                attackComponent.Attack.Attack(entity);
                 attackComponent.AttackTimer = 0f;
             }
         }

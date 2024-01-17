@@ -11,10 +11,10 @@ public struct AttackComponent : IComponent
 {
     public LayerMask LayerMask;
     [field: SerializeField] public GameObject HitFx { get; set; }
-    [field: SerializeField] public float AttackRadius { get; set; }
     [field: SerializeField] public float AttackDamage { get; set; }
     [field: SerializeField] public float AttackCooldown { get; set; }
     public bool IsInitialized { get; set; }
     public float AttackTimer { get; set; }
+
     public AttackBase Attack;
 }

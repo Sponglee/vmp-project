@@ -1,12 +1,14 @@
+using Scellecs.Morpeh;
+using Scellecs.Morpeh.Providers;
 using UnityEngine;
 
 public class AttackBase : MonoBehaviour, IAttack
 {
-    public virtual void InitializeAttack(float AttackRadius)
+    public virtual void InitializeAttack()
     {
     }
 
-    public virtual void Attack(AttackComponent aAttackComponent)
+    public virtual void Attack(Entity entity)
     {
     }
 }
