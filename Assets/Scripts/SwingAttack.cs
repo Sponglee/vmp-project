@@ -27,34 +27,36 @@ public class SwingAttack : AttackBase
 
         base.Attack(entity);
 
-
         var size = Physics.OverlapSphereNonAlloc(transform.position, SwingRadius, hitColliders,
             attackComponent.LayerMask);
-
 
         for (int i = 0; i < size; i++)
         {
             EntityProvider targetEntitiy = hitColliders[i].GetComponent<EntityProvider>();
 
             if (targetEntitiy == null) continue;
+            TakeDamage(targetEntitiy, attackComponent);
+        }
+    }
 
-            if (targetEntitiy.Entity.Has<CachedDamageComponent>())
-            {
-                ref var cachedDamageComponent =
-                    ref targetEntitiy.Entity.GetComponent<CachedDamageComponent>();
+    private void TakeDamage(EntityProvider targetEntity, AttackComponent attackComponent)
+    {
+        if (targetEntity.Entity.Has<CachedDamageComponent>())
+        {
+            ref var cachedDamageComponent =
+                ref targetEntity.Entity.GetComponent<CachedDamageComponent>();
 
-                cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
-                cachedDamageComponent.HitFx = attackComponent.HitFx;
-            }
-            else
-            {
-                targetEntitiy.Entity.AddComponent<CachedDamageComponent>();
-                ref var cachedDamageComponent =
-                    ref targetEntitiy.Entity.GetComponent<CachedDamageComponent>();
+            cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
+            cachedDamageComponent.HitFx = attackComponent.HitFx;
+        }
+        else
+        {
+            targetEntity.Entity.AddComponent<CachedDamageComponent>();
+            ref var cachedDamageComponent =
+                ref targetEntity.Entity.GetComponent<CachedDamageComponent>();
 
-                cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
-                cachedDamageComponent.HitFx = attackComponent.HitFx;
-            }
+            cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
+            cachedDamageComponent.HitFx = attackComponent.HitFx;
         }
     }
 }

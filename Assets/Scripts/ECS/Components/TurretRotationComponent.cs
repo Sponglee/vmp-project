@@ -11,21 +11,21 @@ using UnityEngine.Serialization;
 public struct TurretRotationComponent : IComponent
 {
     public Transform TurretPivot;
-
-    private Tween rotationTween;
-
     [SerializeField] private float turretRotationSpeed;
+    private Tween _rotationTween;
 
     public void ResetTurret()
     {
-        rotationTween?.Kill();
-        rotationTween = TurretPivot.DOLocalRotate(Vector3.zero, turretRotationSpeed);
+        _rotationTween?.Kill();
+        _rotationTween = TurretPivot.DOLocalRotate(Vector3.zero, turretRotationSpeed);
     }
 
     public void RotateToTarget(Transform aTarget)
     {
-        Vector3 lookRotation = (aTarget.position - TurretPivot.position).normalized;
-        rotationTween?.Kill();
-        rotationTween = TurretPivot.DOLookAt(TurretPivot.position + lookRotation, turretRotationSpeed);
+        var turretPivotPosition = TurretPivot.position;
+
+        Vector3 lookRotation = (aTarget.position - turretPivotPosition).normalized;
+        _rotationTween?.Kill();
+        _rotationTween = TurretPivot.DOLookAt(turretPivotPosition + lookRotation, turretRotationSpeed);
     }
 }

@@ -8,11 +8,11 @@ using UnityEngine;
 public class ProjectileAttack : AttackBase
 {
     public float ShootRadius = 1f;
-    private Collider[] hitColliders;
+    private Collider[] _hitColliders;
 
     public override void InitializeAttack()
     {
-        hitColliders = new Collider[GameSettings.GetReference<Settings>().MaxTargetSize];
+        _hitColliders = new Collider[GameSettings.GetReference<Settings>().MaxTargetSize];
     }
 
     public override void Attack(Entity entity)
@@ -22,7 +22,7 @@ public class ProjectileAttack : AttackBase
         base.Attack(entity);
 
 
-        var size = Physics.OverlapSphereNonAlloc(transform.position, ShootRadius, hitColliders,
+        var size = Physics.OverlapSphereNonAlloc(transform.position, ShootRadius, _hitColliders,
             attackComponent.LayerMask);
 
         var targetEntity = GetClosestTarget(size);
@@ -38,13 +38,13 @@ public class ProjectileAttack : AttackBase
         RotateTurret(entity, targetEntity);
     }
 
-    public EntityProvider GetClosestTarget(int size)
+    private EntityProvider GetClosestTarget(int size)
     {
         EntityProvider tmpEntity = null;
 
         for (int i = 0; i < size; i++)
         {
-            EntityProvider targetEntity = hitColliders[i].GetComponent<EntityProvider>();
+            EntityProvider targetEntity = _hitColliders[i].GetComponent<EntityProvider>();
 
             if (targetEntity == null) continue;
 
@@ -62,7 +62,7 @@ public class ProjectileAttack : AttackBase
         return tmpEntity;
     }
 
-    public void TakeDamage(EntityProvider targetEntity, AttackComponent attackComponent)
+    private void TakeDamage(EntityProvider targetEntity, AttackComponent attackComponent)
     {
         if (targetEntity.Entity.Has<CachedDamageComponent>())
         {
@@ -83,14 +83,14 @@ public class ProjectileAttack : AttackBase
         }
     }
 
-    public void RotateTurret(Entity entity, EntityProvider targetEntity)
+    private void RotateTurret(Entity entity, EntityProvider targetEntity)
     {
         if (!entity.Has<TurretRotationComponent>()) return;
         ref var turretRotateComponent = ref entity.GetComponent<TurretRotationComponent>();
         turretRotateComponent.RotateToTarget(targetEntity.transform);
     }
 
-    public void ResetTurret(Entity entity)
+    private void ResetTurret(Entity entity)
     {
         if (!entity.Has<TurretRotationComponent>()) return;
         ref var turretRotateComponent = ref entity.GetComponent<TurretRotationComponent>();
