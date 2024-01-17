@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnRadius: 30
   SpawnTime: 5
-  SpawnWaveAmount: 15
+  SpawnWaveAmount: 7
   enemyPrefabs:
   - {fileID: 9128319128292686956, guid: 42822457d02d7451eb86dc0171512b75, type: 3}

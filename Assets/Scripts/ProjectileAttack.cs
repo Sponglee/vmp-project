@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scellecs.Morpeh;
@@ -26,7 +27,11 @@ public class ProjectileAttack : AttackBase
 
         var targetEntity = GetClosestTarget(size);
 
-        if (targetEntity == null) return;
+        if (targetEntity == null)
+        {
+            ResetTurret(entity);
+            return;
+        }
 
         TakeDamage(targetEntity, attackComponent);
 
@@ -35,15 +40,26 @@ public class ProjectileAttack : AttackBase
 
     public EntityProvider GetClosestTarget(int size)
     {
+        EntityProvider tmpEntity = null;
+
         for (int i = 0; i < size; i++)
         {
-            EntityProvider targetEntitiy = hitColliders[i].GetComponent<EntityProvider>();
+            EntityProvider targetEntity = hitColliders[i].GetComponent<EntityProvider>();
 
-            if (targetEntitiy == null) continue;
-            return targetEntitiy;
+            if (targetEntity == null) continue;
+
+            if (tmpEntity != null && Vector3.Distance(tmpEntity.transform.position, transform.position) <
+                Vector3.Distance(targetEntity.transform.position, transform.position))
+            {
+                continue;
+            }
+            else
+            {
+                tmpEntity = targetEntity;
+            }
         }
 
-        return null;
+        return tmpEntity;
     }
 
     public void TakeDamage(EntityProvider targetEntity, AttackComponent attackComponent)
@@ -70,10 +86,21 @@ public class ProjectileAttack : AttackBase
     public void RotateTurret(Entity entity, EntityProvider targetEntity)
     {
         if (!entity.Has<TurretRotationComponent>()) return;
-
         ref var turretRotateComponent = ref entity.GetComponent<TurretRotationComponent>();
-
-
         turretRotateComponent.RotateToTarget(targetEntity.transform);
+    }
+
+    public void ResetTurret(Entity entity)
+    {
+        if (!entity.Has<TurretRotationComponent>()) return;
+        ref var turretRotateComponent = ref entity.GetComponent<TurretRotationComponent>();
+        turretRotateComponent.ResetTurret();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawWireSphere(transform.position, ShootRadius);
     }
 }
