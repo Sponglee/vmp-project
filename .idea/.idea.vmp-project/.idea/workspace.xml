@@ -6,15 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a51a0193-e0fa-4d18-9b2d-927256d15433" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.blend1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLowFbx.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLowFbx.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLowFbx.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLowFbx.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Settings/SpawnerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Settings/SpawnerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/TurretRotationComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/TurretRotationComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ProjectileAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ProjectileAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/EnemyInputComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Components/EnemyInputComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/EnemyInputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ECS/Systems/EnemyInputSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +272,7 @@
       <workItem from="1704452143481" duration="1962000" />
       <workItem from="1704465570861" duration="4191000" />
       <workItem from="1705154384633" duration="4541000" />
-      <workItem from="1705496976912" duration="5005000" />
+      <workItem from="1705496976912" duration="7237000" />
     </task>
     <servers />
   </component>

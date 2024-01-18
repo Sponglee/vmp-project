@@ -8,5 +8,7 @@ using UnityEngine;
 [System.Serializable]
 public struct EnemyInputComponent : IComponent
 {
+    public bool IsTracking;
+    public bool IsInitialized;
     public MovementProvider MovementProvider;
 }

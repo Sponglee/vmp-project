@@ -36,10 +36,25 @@ public sealed class EnemyInputSystem : UpdateSystem
             ref var enemyInputComponent = ref entity.GetComponent<EnemyInputComponent>();
             ref var transformComponent = ref entity.GetComponent<TransformComponent>();
 
-            enemyInputComponent.MovementProvider.GetData().HorizontalInput =
-                (targetPosition - transformComponent.Transform.position).normalized.x;
-            enemyInputComponent.MovementProvider.GetData().VerticalInput =
-                (targetPosition - transformComponent.Transform.position).normalized.z;
+            var position = transformComponent.Transform.position;
+
+            if (enemyInputComponent.IsTracking)
+            {
+                enemyInputComponent.MovementProvider.GetData().HorizontalInput =
+                    (targetPosition - position).normalized.x;
+                enemyInputComponent.MovementProvider.GetData().VerticalInput =
+                    (targetPosition - position).normalized.z;
+            }
+            else if (!enemyInputComponent.IsInitialized)
+            {
+                enemyInputComponent.MovementProvider.GetData().HorizontalInput =
+                    (targetPosition - position).normalized.x;
+
+                enemyInputComponent.MovementProvider.GetData().VerticalInput =
+                    (targetPosition - position).normalized.z;
+
+                enemyInputComponent.IsInitialized = true;
+            }
         }
     }
 }
