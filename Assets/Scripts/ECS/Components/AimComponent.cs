@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using DG.Tweening;
 using Unity.IL2CPP.CompilerServices;
 using UnityEngine;
@@ -19,7 +18,10 @@ public struct AimComponent : IComponent
     public Quaternion StartRotation { get; set; }
 
     public Transform TurretPivot;
-    [FormerlySerializedAs("TurretRotationDuration")] public float AimDuration;
+
+    [FormerlySerializedAs("TurretRotationDuration")]
+    public float AimDuration;
+
     public float TurretRotationResetTime;
 
     public void SetRotateTarget(Transform aTarget)
@@ -28,5 +30,13 @@ public struct AimComponent : IComponent
         StartRotation = TurretPivot.rotation;
         LookTimer = 0f;
         IsRotationInProgress = true;
+    }
+
+    public Quaternion GetAimRotation()
+    {
+        var dir = (TurretLookTarget.position -
+                   TurretPivot.position) + Vector3.up * .25f;
+
+        return Quaternion.LookRotation(dir, Vector3.up);
     }
 }

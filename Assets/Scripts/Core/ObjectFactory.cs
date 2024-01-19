@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public static class ObjectFactory 
+public static class ObjectFactory
 {
     public static GameObject CreateObject(GameObject aObject, Vector3 aPosition = default)
     {
@@ -8,16 +8,17 @@ public static class ObjectFactory
 
         return tmpObject;
     }
-    
-    
-    public static GameObject CreateObject(GameObject aObject, Transform aContainer, Vector3 aPosition = default)
+
+
+    public static GameObject CreateObject(GameObject aObject, Transform aContainer, Vector3 aPosition = default,
+        Quaternion rotation = default)
     {
-        GameObject tmpObject = GameObject.Instantiate(aObject, aPosition, Quaternion.identity, aContainer);
+        GameObject tmpObject = GameObject.Instantiate(aObject, aPosition, rotation, aContainer);
 
         return tmpObject;
     }
-    
-    
+
+
     public static T Create<T>(string aPrefabPath, Transform aParent = null)
     {
         GameObject tmpObject = (GameObject)GameObject.Instantiate(Resources.Load(aPrefabPath));

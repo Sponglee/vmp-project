@@ -14,6 +14,7 @@ public class ProjectileAttack : AttackBase
     private Collider[] _hitColliders;
     private EntityProvider targetEntity;
 
+    public GameObject projectileFx;
 
     protected AimProvider _aimProvider;
 
@@ -53,6 +54,10 @@ public class ProjectileAttack : AttackBase
     private void AimComplete()
     {
         _attackProvider.GetData().IsArmed = false;
+
+        Destroy(
+            ObjectFactory.CreateObject(projectileFx,
+                null, transform.position + Vector3.up, _aimProvider.GetData().GetAimRotation()), 3f);
         DealDamage(ref _attackProvider.GetData());
     }
 

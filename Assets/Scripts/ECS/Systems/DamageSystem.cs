@@ -33,9 +33,12 @@ public sealed class DamageSystem : UpdateSystem
                 cachedDamageComponent.DamageCached -= cachedDamageComponent.DamageCached;
                 //Spawn numbers here via ui numbers service
 
-                Destroy(
-                    ObjectFactory.CreateObject(cachedDamageComponent.HitFx,
-                        transformComponent.Transform, transformComponent.Transform.position + Vector3.up), 3f);
+                if (cachedDamageComponent.HitFx != null)
+                {
+                    Destroy(
+                        ObjectFactory.CreateObject(cachedDamageComponent.HitFx,
+                            transformComponent.Transform, transformComponent.Transform.position + Vector3.up), 3f);
+                }
             }
 
             if (cachedDamageComponent.DamageCached == 0)

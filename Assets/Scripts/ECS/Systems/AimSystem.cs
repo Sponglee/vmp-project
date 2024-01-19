@@ -32,13 +32,15 @@ public sealed class AimSystem : UpdateSystem
 
             if (turretRotationComponent.IsRotationInProgress && turretRotationComponent.TurretLookTarget != null)
             {
-                Debug.Log(transformComponent.Transform.name + " : " + turretRotationComponent.LookTimer);
-
                 turretRotationComponent.LookTimer += deltaTime;
 
+                var dir = turretRotationComponent.TurretLookTarget.position -
+                          turretRotationComponent.TurretPivot.position;
+                dir.y = turretRotationComponent.TurretPivot.position.y;
+
+
                 turretRotationComponent.TurretPivot.rotation = Quaternion.Lerp(turretRotationComponent.StartRotation,
-                    Quaternion.LookRotation(turretRotationComponent.TurretLookTarget.position -
-                                            turretRotationComponent.TurretPivot.position),
+                    Quaternion.LookRotation(dir, Vector3.up),
                     turretRotationComponent.LookTimer / turretRotationComponent.AimDuration);
 
 
@@ -62,17 +64,5 @@ public sealed class AimSystem : UpdateSystem
                 }
             }
         }
-    }
-
-
-    public void RotateToTarget(ref AimComponent aimComponent)
-    {
-        if (aimComponent.TurretLookTarget == null) return;
-
-        aimComponent.TurretPivot.rotation =
-            Quaternion.Lerp(aimComponent.StartRotation,
-                Quaternion.LookRotation(aimComponent.TurretLookTarget.position -
-                                        aimComponent.TurretPivot.position),
-                aimComponent.LookTimer / aimComponent.AimDuration);
     }
 }

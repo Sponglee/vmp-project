@@ -81,10 +81,11 @@ MonoBehaviour:
     LayerMask:
       serializedVersion: 2
       m_Bits: 128
+    Attack: {fileID: 616484384}
     <HitFx>k__BackingField: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
     <AttackDamage>k__BackingField: 1
     <AttackCooldown>k__BackingField: 1
-    Attack: {fileID: 616484384}
+    IsArmed: 0
 --- !u!114 &1821093109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootRadius: 10
-  _turretRotationProvider: {fileID: 0}
 --- !u!114 &46559929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,10 +189,11 @@ MonoBehaviour:
     LayerMask:
       serializedVersion: 2
       m_Bits: 128
+    Attack: {fileID: 1906403632}
     <HitFx>k__BackingField: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
     <AttackDamage>k__BackingField: 1
     <AttackCooldown>k__BackingField: 0.5
-    Attack: {fileID: 1906403632}
+    IsArmed: 0
 --- !u!114 &46559930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +672,7 @@ MonoBehaviour:
     <LookTimer>k__BackingField: 0
     <IsRotationInProgress>k__BackingField: 0
     TurretPivot: {fileID: 4027479072304332707}
-    TurretRotationDuration: 0.25
+    AimDuration: 0.25
     TurretRotationResetTime: 2
 --- !u!114 &978608328
 MonoBehaviour:
@@ -876,31 +877,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -637928109276037349, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7952439
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -637928109276037349, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.013530851
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -637928109276037349, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6060509
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -637928109276037349, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.010311903
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -637928109276037349, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.517
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -637928109276037349, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -74.63
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -637928109276037349, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 1.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_Name
@@ -912,7 +913,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: d088900b2980a49e1ad4caf290cfbbe8, type: 2}
     - target: {fileID: 5866666021909216657, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}

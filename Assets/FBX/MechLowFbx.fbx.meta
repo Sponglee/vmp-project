@@ -46,19 +46,107 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/LegIK.L.002
+        weight: 1
+      - path: Armature/LegIK.L.002/LegIK.L.002_end
+        weight: 1
+      - path: Armature/LegIK.R.002
+        weight: 1
+      - path: Armature/LegIK.R.002/LegIK.R.002_end
+        weight: 1
+      - path: Armature/RootBone
+        weight: 1
+      - path: Armature/RootBone/Body
+        weight: 1
+      - path: Armature/RootBone/Body/Head
+        weight: 0
+      - path: Armature/RootBone/Body/Head/Head_end
+        weight: 0
+      - path: Armature/RootBone/Body/Leg000.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L/Leg002.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L/Leg002.L/Chain.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L/Leg002.L/Chain.L/Foot.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L/Leg002.L/Chain.L/Foot.L/Foot.L_end
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R/Leg002.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R/Leg002.R/Chain.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R/Leg002.R/Chain.R/Foot.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R/Leg002.R/Chain.R/Foot.R/Foot.R_end
+        weight: 1
+      - path: Arms
+        weight: 0
+      - path: CockpitBody
+        weight: 0
+      - path: Cone.001
+        weight: 0
+      - path: Cone.007
+        weight: 0
+      - path: Cylinder
+        weight: 0
+      - path: Cylinder.001
+        weight: 0
+      - path: Foot
+        weight: 0
+      - path: Joint1
+        weight: 0
+      - path: Joint2
+        weight: 0
+      - path: Joint3
+        weight: 0
+      - path: Joint4
+        weight: 0
+      - path: Launchers
+        weight: 0
+      - path: Launchers.001
+        weight: 0
+      - path: Leg1
+        weight: 0
+      - path: Legs2
+        weight: 0
+      - path: Legs3
+        weight: 0
+      - path: LowerArms
+        weight: 0
+      - path: Pelvis
+        weight: 0
+      - path: Thruster
+        weight: 0
+      - path: TurretBase
+        weight: 0
+      - path: UpperHardpoint
+        weight: 0
+      - path: UpperHardpoint/UpperThrusters
+        weight: 1
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -75,19 +163,107 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/LegIK.L.002
+        weight: 1
+      - path: Armature/LegIK.L.002/LegIK.L.002_end
+        weight: 1
+      - path: Armature/LegIK.R.002
+        weight: 1
+      - path: Armature/LegIK.R.002/LegIK.R.002_end
+        weight: 1
+      - path: Armature/RootBone
+        weight: 1
+      - path: Armature/RootBone/Body
+        weight: 1
+      - path: Armature/RootBone/Body/Head
+        weight: 0
+      - path: Armature/RootBone/Body/Head/Head_end
+        weight: 0
+      - path: Armature/RootBone/Body/Leg000.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L/Leg002.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L/Leg002.L/Chain.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L/Leg002.L/Chain.L/Foot.L
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.L/Leg001.L/Leg002.L/Chain.L/Foot.L/Foot.L_end
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R/Leg002.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R/Leg002.R/Chain.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R/Leg002.R/Chain.R/Foot.R
+        weight: 1
+      - path: Armature/RootBone/Body/Leg000.R/Leg001.R/Leg002.R/Chain.R/Foot.R/Foot.R_end
+        weight: 1
+      - path: Arms
+        weight: 0
+      - path: CockpitBody
+        weight: 0
+      - path: Cone.001
+        weight: 0
+      - path: Cone.007
+        weight: 0
+      - path: Cylinder
+        weight: 0
+      - path: Cylinder.001
+        weight: 0
+      - path: Foot
+        weight: 0
+      - path: Joint1
+        weight: 0
+      - path: Joint2
+        weight: 0
+      - path: Joint3
+        weight: 0
+      - path: Joint4
+        weight: 0
+      - path: Launchers
+        weight: 0
+      - path: Launchers.001
+        weight: 0
+      - path: Leg1
+        weight: 0
+      - path: Legs2
+        weight: 0
+      - path: Legs3
+        weight: 0
+      - path: LowerArms
+        weight: 0
+      - path: Pelvis
+        weight: 0
+      - path: Thruster
+        weight: 0
+      - path: TurretBase
+        weight: 0
+      - path: UpperHardpoint
+        weight: 0
+      - path: UpperHardpoint/UpperThrusters
+        weight: 1
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 0

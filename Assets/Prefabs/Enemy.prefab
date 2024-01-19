@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootRadius: 5
-  _turretRotationProvider: {fileID: 0}
+  projectileFx: {fileID: 0}
 --- !u!1 &8710656125750831475
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,12 +161,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9128319128292686956}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &7958244328727342734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -311,10 +311,11 @@ MonoBehaviour:
     LayerMask:
       serializedVersion: 2
       m_Bits: 64
+    Attack: {fileID: 4121370727384152182}
     <HitFx>k__BackingField: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
     <AttackDamage>k__BackingField: 1
     <AttackCooldown>k__BackingField: 3
-    Attack: {fileID: 4121370727384152182}
+    IsArmed: 0
 --- !u!114 &7911010002863459905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,10 +329,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    <TurretLookTargetPos>k__BackingField: {x: 0, y: 0, z: 0}
+    <TurretLookTarget>k__BackingField: {fileID: 0}
     <LookTimer>k__BackingField: 0
+    <IsRotationInProgress>k__BackingField: 0
     TurretPivot: {fileID: 4320171805739988693}
-    TurretRotationDuration: 1
+    AimDuration: 1
     TurretRotationResetTime: 3
 --- !u!1 &9128319128669597853
 GameObject:
