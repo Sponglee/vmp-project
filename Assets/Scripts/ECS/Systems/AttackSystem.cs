@@ -19,7 +19,8 @@ public sealed class AttackSystem : UpdateSystem
     public override void OnAwake()
     {
         AntInject.Inject<AttackSystem>(this);
-        this._attackFilter = this.World.Filter.With<AttackComponent>().With<TransformComponent>().Build();
+        this._attackFilter = this.World.Filter.With<AttackComponent>().With<TransformComponent>()
+            .Without<EnemyTagComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
@@ -35,14 +36,19 @@ public sealed class AttackSystem : UpdateSystem
             if (!attackComponent.IsInitialized)
             {
                 attackComponent.IsInitialized = true;
+
+
                 attackComponent.Attack.InitializeAttack();
             }
 
-            attackComponent.AttackTimer += deltaTime;
-            if (attackComponent.AttackTimer >= attackComponent.AttackCooldown)
+            if (!attackComponent.IsArmed)
             {
-                attackComponent.Attack.Attack(entity);
-                attackComponent.AttackTimer = 0f;
+                attackComponent.AttackTimer += deltaTime;
+                if (attackComponent.AttackTimer >= attackComponent.AttackCooldown)
+                {
+                    attackComponent.Attack.Attack();
+                    attackComponent.AttackTimer = 0f;
+                }
             }
         }
     }

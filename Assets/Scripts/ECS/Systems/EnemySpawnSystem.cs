@@ -43,6 +43,7 @@ public sealed class EnemySpawnSystem : UpdateSystem
 
     private void SpawnWave(EnemySpawnComponent aSpawner)
     {
+        
         for (int i = 0; i < aSpawner.SpawnerData.SpawnWaveAmount; i++)
         {
             SpawnEnemy(aSpawner);

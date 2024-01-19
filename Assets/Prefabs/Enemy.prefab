@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootRadius: 5
+  _turretRotationProvider: {fileID: 0}
 --- !u!1 &8710656125750831475
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
+    IsTracking: 0
+    IsInitialized: 0
     MovementProvider: {fileID: 9128319128292686947}
 --- !u!114 &5676453492121024961
 MonoBehaviour:
@@ -325,8 +328,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
+    <TurretLookTargetPos>k__BackingField: {x: 0, y: 0, z: 0}
+    <LookTimer>k__BackingField: 0
     TurretPivot: {fileID: 4320171805739988693}
-    turretRotationSpeed: 0.1
+    TurretRotationDuration: 1
+    TurretRotationResetTime: 3
 --- !u!1 &9128319128669597853
 GameObject:
   m_ObjectHideFlags: 0

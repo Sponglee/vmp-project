@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class AttackBase : MonoBehaviour, IAttack
 {
+    protected AttackProvider _attackProvider;
+
     public virtual void InitializeAttack()
     {
     }
 
-    public virtual void Attack(Entity entity)
+
+    public virtual void Attack()
     {
     }
 }

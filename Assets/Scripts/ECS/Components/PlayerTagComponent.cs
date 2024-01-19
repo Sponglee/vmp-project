@@ -8,4 +8,11 @@ using UnityEngine;
 [System.Serializable]
 public struct PlayerTagComponent : IComponent
 {
+    [field: SerializeField] public CharacterTag CharacterTag { get; set; }
+}
+
+public enum CharacterTag
+{
+    Player,
+    Enemy
 }

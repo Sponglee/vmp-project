@@ -1,69 +1,65 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Anthill.Core;
+using DG.Tweening;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ProjectileAttack : AttackBase
 {
     public float ShootRadius = 1f;
     private Collider[] _hitColliders;
+    private EntityProvider targetEntity;
+
+
+    protected AimProvider _aimProvider;
+
 
     public override void InitializeAttack()
     {
+        _attackProvider = transform.GetComponent<AttackProvider>();
+        _aimProvider = transform.GetComponentInParent<AimProvider>();
+
         _hitColliders = new Collider[GameSettings.GetReference<Settings>().MaxTargetSize];
     }
 
-    public override void Attack(Entity entity)
+    public override void Attack()
     {
-        ref var attackComponent = ref entity.GetComponent<AttackComponent>();
-
-        base.Attack(entity);
-
+        _attackProvider.GetData().IsArmed = true;
 
         var size = Physics.OverlapSphereNonAlloc(transform.position, ShootRadius, _hitColliders,
-            attackComponent.LayerMask);
-
-        var targetEntity = GetClosestTarget(size);
+            _attackProvider.GetData().LayerMask);
+        targetEntity = GetClosestTarget(size);
 
         if (targetEntity == null)
         {
-            ResetTurret(entity);
+            _attackProvider.GetData().IsArmed = false;
             return;
         }
 
-        TakeDamage(targetEntity, attackComponent);
-
-        RotateTurret(entity, targetEntity);
+        Aim();
+        base.Attack();
     }
 
-    private EntityProvider GetClosestTarget(int size)
+    private void Aim()
     {
-        EntityProvider tmpEntity = null;
-
-        for (int i = 0; i < size; i++)
-        {
-            EntityProvider targetEntity = _hitColliders[i].GetComponent<EntityProvider>();
-
-            if (targetEntity == null) continue;
-
-            if (tmpEntity != null && Vector3.Distance(tmpEntity.transform.position, transform.position) <
-                Vector3.Distance(targetEntity.transform.position, transform.position))
-            {
-                continue;
-            }
-            else
-            {
-                tmpEntity = targetEntity;
-            }
-        }
-
-        return tmpEntity;
+        _aimProvider.GetData().SetRotateTarget(targetEntity.transform);
+        DOVirtual.DelayedCall(_aimProvider.GetData().AimDuration, AimComplete);
     }
 
-    private void TakeDamage(EntityProvider targetEntity, AttackComponent attackComponent)
+    private void AimComplete()
     {
+        _attackProvider.GetData().IsArmed = false;
+        DealDamage(ref _attackProvider.GetData());
+    }
+
+    private void DealDamage(ref AttackComponent attackComponent)
+    {
+        if (targetEntity == null) return;
+
         if (targetEntity.Entity.Has<CachedDamageComponent>())
         {
             ref var cachedDamageComponent =
@@ -83,18 +79,28 @@ public class ProjectileAttack : AttackBase
         }
     }
 
-    private void RotateTurret(Entity entity, EntityProvider targetEntity)
+    private EntityProvider GetClosestTarget(int size)
     {
-        if (!entity.Has<TurretRotationComponent>()) return;
-        ref var turretRotateComponent = ref entity.GetComponent<TurretRotationComponent>();
-        turretRotateComponent.RotateToTarget(targetEntity.transform);
-    }
+        EntityProvider tmpEntity = null;
 
-    private void ResetTurret(Entity entity)
-    {
-        if (!entity.Has<TurretRotationComponent>()) return;
-        ref var turretRotateComponent = ref entity.GetComponent<TurretRotationComponent>();
-        turretRotateComponent.ResetTurret();
+        for (int i = 0; i < size; i++)
+        {
+            targetEntity = _hitColliders[i].GetComponent<EntityProvider>();
+
+            if (targetEntity == null) continue;
+
+            if (tmpEntity != null && Vector3.Distance(tmpEntity.transform.position, transform.position) <
+                Vector3.Distance(targetEntity.transform.position, transform.position))
+            {
+                continue;
+            }
+            else
+            {
+                tmpEntity = targetEntity;
+            }
+        }
+
+        return tmpEntity;
     }
 
     private void OnDrawGizmos()

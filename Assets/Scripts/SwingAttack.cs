@@ -18,24 +18,22 @@ public class SwingAttack : AttackBase
         hitColliders = new Collider[GameSettings.GetReference<Settings>().MaxTargetSize];
     }
 
-    public override void Attack(Entity entity)
+    public override void Attack()
     {
-        ref var attackComponent = ref entity.GetComponent<AttackComponent>();
-
         if (SwingEmitter != null)
             SwingEmitter.Emit();
 
-        base.Attack(entity);
+        base.Attack();
 
         var size = Physics.OverlapSphereNonAlloc(transform.position, SwingRadius, hitColliders,
-            attackComponent.LayerMask);
+            _attackProvider.GetData().LayerMask);
 
         for (int i = 0; i < size; i++)
         {
             EntityProvider targetEntitiy = hitColliders[i].GetComponent<EntityProvider>();
 
             if (targetEntitiy == null) continue;
-            TakeDamage(targetEntitiy, attackComponent);
+            TakeDamage(targetEntitiy, _attackProvider.GetData());
         }
     }
 
