@@ -5,6 +5,7 @@ using Anthill.Core;
 using DG.Tweening;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Providers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -82,8 +83,15 @@ public class ProjectileAttack : AttackBase
             cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
             cachedDamageComponent.HitFx = attackComponent.HitFx;
         }
+
+
+        if (targetEntity != null && targetEntity.Entity.Has<TargetedTagComponent>())
+        {
+            targetEntity.Entity.RemoveComponent<TargetedTagComponent>();
+        }
     }
 
+    //move this to system
     private EntityProvider GetClosestTarget(int size)
     {
         EntityProvider tmpEntity = null;
@@ -103,6 +111,11 @@ public class ProjectileAttack : AttackBase
             {
                 tmpEntity = targetEntity;
             }
+        }
+
+        if (tmpEntity != null && !tmpEntity.Entity.Has<TargetedTagComponent>())
+        {
+            tmpEntity.Entity.AddComponent<TargetedTagComponent>();
         }
 
         return tmpEntity;
