@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1906403631
 Transform:
   m_ObjectHideFlags: 0
@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootRadius: 10
+  projectileFx: {fileID: 8550428095041918667, guid: 43bf4e35463384615a3a93bb62eb05a4, type: 3}
 --- !u!114 &46559929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 128
     Attack: {fileID: 1906403632}
-    <HitFx>k__BackingField: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+    <HitFx>k__BackingField: {fileID: 0}
     <AttackDamage>k__BackingField: 1
     <AttackCooldown>k__BackingField: 0.5
     IsArmed: 0
@@ -487,7 +488,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3828847935820253664}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

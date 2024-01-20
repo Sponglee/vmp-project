@@ -19,8 +19,7 @@ public sealed class AttackSystem : UpdateSystem
     public override void OnAwake()
     {
         AntInject.Inject<AttackSystem>(this);
-        this._attackFilter = this.World.Filter.With<AttackComponent>().With<TransformComponent>()
-            .Without<EnemyTagComponent>().Build();
+        this._attackFilter = this.World.Filter.With<AttackComponent>().With<TransformComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)

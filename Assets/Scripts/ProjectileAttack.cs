@@ -36,6 +36,8 @@ public class ProjectileAttack : AttackBase
             _attackProvider.GetData().LayerMask);
         targetEntity = GetClosestTarget(size);
 
+        Debug.Log(targetEntity);
+
         if (targetEntity == null)
         {
             _attackProvider.GetData().IsArmed = false;
@@ -48,6 +50,7 @@ public class ProjectileAttack : AttackBase
 
     private void Aim()
     {
+        Debug.Log(_aimProvider.transform.name);
         _aimProvider.GetData().SetRotateTarget(targetEntity.transform);
         DOVirtual.DelayedCall(_aimProvider.GetData().AimDuration, AimComplete);
     }

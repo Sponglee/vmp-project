@@ -1,3 +1,4 @@
+using Anthill.Inject;
 using DG.Tweening;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
@@ -11,15 +12,20 @@ using Unity.IL2CPP.CompilerServices;
 public sealed class AimSystem : UpdateSystem
 {
     private Filter _turretFilter;
+    [Inject] public Game Game { get; set; }
 
 
     public override void OnAwake()
     {
+        AntInject.Inject<AimSystem>(this);
+
         _turretFilter = World.Filter.With<AimComponent>().With<TransformComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)
     {
+        if (Game.GameManager.IsPaused) return;
+
         foreach (var turretEntity in _turretFilter)
         {
             ref var turretRotationComponent = ref turretEntity.GetComponent<AimComponent>();
@@ -61,6 +67,14 @@ public sealed class AimSystem : UpdateSystem
                 if (turretRotationComponent.LookTimer >= turretRotationComponent.AimDuration)
                 {
                     turretRotationComponent.IsRotationInProgress = false;
+                }
+            }
+            else if (turretRotationComponent.IsRotationInProgress && turretRotationComponent.TurretLookTarget != null)
+            {
+                turretRotationComponent.LookTimer += deltaTime;
+                if (turretRotationComponent.LookTimer >= turretRotationComponent.TurretRotationResetTime)
+                {
+                    turretRotationComponent.SetRotateTarget(null);
                 }
             }
         }
