@@ -12,14 +12,11 @@ public struct AimComponent : IComponent
 {
     [field: SerializeField] public Transform TurretLookTarget { get; set; }
     [field: SerializeField] public float LookTimer { get; set; }
-
     [field: SerializeField] public bool IsRotationInProgress { get; set; }
-    public Tween RotationTween { get; set; }
     public Quaternion StartRotation { get; set; }
 
     public Transform TurretPivot;
 
-    [FormerlySerializedAs("TurretRotationDuration")]
     public float AimDuration;
 
     public float TurretRotationResetTime;
@@ -32,10 +29,10 @@ public struct AimComponent : IComponent
         IsRotationInProgress = true;
     }
 
-    public Quaternion GetAimRotation()
+    public Quaternion GetAimRotation(Transform aPoint)
     {
         var dir = (TurretLookTarget.position -
-                   TurretPivot.position) + Vector3.up * .25f;
+                   aPoint.position) + Vector3.up * .5f;
 
         return Quaternion.LookRotation(dir, Vector3.up);
     }

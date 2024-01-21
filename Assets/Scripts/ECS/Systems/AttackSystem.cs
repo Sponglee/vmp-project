@@ -43,7 +43,7 @@ public sealed class AttackSystem : UpdateSystem
             if (!attackComponent.IsArmed)
             {
                 attackComponent.AttackTimer += deltaTime;
-                if (attackComponent.AttackTimer >= attackComponent.AttackCooldown)
+                if (attackComponent.AttackTimer >= attackComponent.Attack.AttackCooldown)
                 {
                     attackComponent.Attack.Attack();
                     attackComponent.AttackTimer = 0f;

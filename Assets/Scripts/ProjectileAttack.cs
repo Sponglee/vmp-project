@@ -11,14 +11,14 @@ using UnityEngine.Serialization;
 
 public class ProjectileAttack : AttackBase
 {
-    public float ShootRadius = 1f;
-    private Collider[] _hitColliders;
-    private EntityProvider targetEntity;
+    public float DelayBeforeAttack;
 
     public GameObject projectileFx;
 
     protected AimProvider _aimProvider;
 
+    private Collider[] _hitColliders;
+    private EntityProvider targetEntity;
 
     public override void InitializeAttack()
     {
@@ -32,11 +32,9 @@ public class ProjectileAttack : AttackBase
     {
         _attackProvider.GetData().IsArmed = true;
 
-        var size = Physics.OverlapSphereNonAlloc(transform.position, ShootRadius, _hitColliders,
-            _attackProvider.GetData().LayerMask);
+        var size = Physics.OverlapSphereNonAlloc(transform.position, AttackRange,
+            _hitColliders, LayerMask);
         targetEntity = GetClosestTarget(size);
-
-        Debug.Log(targetEntity);
 
         if (targetEntity == null)
         {
@@ -50,18 +48,20 @@ public class ProjectileAttack : AttackBase
 
     private void Aim()
     {
-        Debug.Log(_aimProvider.transform.name);
         _aimProvider.GetData().SetRotateTarget(targetEntity.transform);
-        DOVirtual.DelayedCall(_aimProvider.GetData().AimDuration, AimComplete);
+        DOVirtual.DelayedCall(_aimProvider.GetData().AimDuration + DelayBeforeAttack, AimComplete);
     }
 
     private void AimComplete()
     {
         _attackProvider.GetData().IsArmed = false;
 
+        Transform shootingPoint = GetNextShootingPoint();
+
         Destroy(
             ObjectFactory.CreateObject(projectileFx,
-                null, transform.position + Vector3.up, _aimProvider.GetData().GetAimRotation()), 3f);
+                null, shootingPoint.position, _aimProvider.GetData().GetAimRotation(shootingPoint)), 3f);
+
         DealDamage(ref _attackProvider.GetData());
     }
 
@@ -74,8 +74,8 @@ public class ProjectileAttack : AttackBase
             ref var cachedDamageComponent =
                 ref targetEntity.Entity.GetComponent<CachedDamageComponent>();
 
-            cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
-            cachedDamageComponent.HitFx = attackComponent.HitFx;
+            cachedDamageComponent.DamageCached += AttackDamage;
+            cachedDamageComponent.HitFx = HitFx;
         }
         else
         {
@@ -83,8 +83,8 @@ public class ProjectileAttack : AttackBase
             ref var cachedDamageComponent =
                 ref targetEntity.Entity.GetComponent<CachedDamageComponent>();
 
-            cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
-            cachedDamageComponent.HitFx = attackComponent.HitFx;
+            cachedDamageComponent.DamageCached += AttackDamage;
+            cachedDamageComponent.HitFx = HitFx;
         }
 
 
@@ -128,6 +128,6 @@ public class ProjectileAttack : AttackBase
     {
         Gizmos.color = Color.yellow;
 
-        Gizmos.DrawWireSphere(transform.position, ShootRadius);
+        Gizmos.DrawWireSphere(transform.position, AttackRange);
     }
 }

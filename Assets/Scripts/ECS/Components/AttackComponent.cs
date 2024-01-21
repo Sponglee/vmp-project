@@ -9,12 +9,7 @@ using UnityEngine.Serialization;
 [System.Serializable]
 public struct AttackComponent : IComponent
 {
-    public LayerMask LayerMask;
     public AttackBase Attack;
-
-    [field: SerializeField] public GameObject HitFx { get; set; }
-    [field: SerializeField] public float AttackDamage { get; set; }
-    [field: SerializeField] public float AttackCooldown { get; set; }
     public bool IsInitialized { get; set; }
     public bool IsArmed;
 

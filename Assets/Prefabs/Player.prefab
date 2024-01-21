@@ -50,6 +50,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b854ce6ef534c45a8a20a42887ee92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <LayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 0
+  <HitFx>k__BackingField: {fileID: 0}
+  <AttackDamage>k__BackingField: 0
+  <AttackRange>k__BackingField: 0
+  <AttackCooldown>k__BackingField: 0
   SwingRadius: 5
   SwingEmitter: {fileID: 616484383}
 --- !u!114 &616484383
@@ -78,13 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    LayerMask:
-      serializedVersion: 2
-      m_Bits: 128
     Attack: {fileID: 616484384}
-    <HitFx>k__BackingField: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
-    <AttackDamage>k__BackingField: 1
-    <AttackCooldown>k__BackingField: 1
     IsArmed: 0
 --- !u!114 &1821093109
 MonoBehaviour:
@@ -144,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1906403631
 Transform:
   m_ObjectHideFlags: 0
@@ -172,7 +173,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5530853907f4a60b6b8997325f4100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootRadius: 10
+  <LayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 128
+  <HitFx>k__BackingField: {fileID: 0}
+  <AttackDamage>k__BackingField: 1
+  <AttackRange>k__BackingField: 10
+  <AttackCooldown>k__BackingField: 1
+  DelayBeforeAttack: 0
   projectileFx: {fileID: 8550428095041918667, guid: 43bf4e35463384615a3a93bb62eb05a4, type: 3}
 --- !u!114 &46559929
 MonoBehaviour:
@@ -187,13 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    LayerMask:
-      serializedVersion: 2
-      m_Bits: 128
     Attack: {fileID: 1906403632}
-    <HitFx>k__BackingField: {fileID: 0}
-    <AttackDamage>k__BackingField: 1
-    <AttackCooldown>k__BackingField: 0.5
     IsArmed: 0
 --- !u!114 &46559930
 MonoBehaviour:
@@ -490,10 +492,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 1
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.42, z: 0}
 --- !u!54 &3828847935820253673
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -826,15 +828,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28a804806d3ed4385966750aa9c54c56, type: 3}
       propertyPath: m_LocalPosition.x

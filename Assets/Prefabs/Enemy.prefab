@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3488380569691127194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3839328428442466871}
+  m_Layer: 0
+  m_Name: ShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3839328428442466871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488380569691127194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.11, z: 12.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 568521713097822656}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5930175727631296973
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5530853907f4a60b6b8997325f4100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootRadius: 10
+  <LayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
+  <HitFx>k__BackingField: {fileID: 0}
+  <AttackDamage>k__BackingField: 0.1
+  <AttackRange>k__BackingField: 5
+  <AttackCooldown>k__BackingField: 2
+  ShootingPoints:
+  - {fileID: 3839328428442466871}
+  DelayBeforeAttack: 0
   projectileFx: {fileID: 1666785221477689161, guid: baa8e3b684556430bbab899a3da47ce5, type: 3}
 --- !u!114 &3646369175787113941
 MonoBehaviour:
@@ -95,13 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    LayerMask:
-      serializedVersion: 2
-      m_Bits: 64
     Attack: {fileID: 4121370727384152182}
-    <HitFx>k__BackingField: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
-    <AttackDamage>k__BackingField: 1
-    <AttackCooldown>k__BackingField: 3
     IsArmed: 0
 --- !u!114 &6884742019219363684
 MonoBehaviour:
@@ -187,6 +221,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b854ce6ef534c45a8a20a42887ee92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <LayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 0
+  <HitFx>k__BackingField: {fileID: 0}
+  <AttackDamage>k__BackingField: 0
+  <AttackRange>k__BackingField: 0
+  <AttackCooldown>k__BackingField: 0
+  ShootingPoints: []
   SwingRadius: 1
   SwingEmitter: {fileID: 0}
 --- !u!114 &6873274477323276738
@@ -509,6 +551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f30dea82f04e4e0d801c946f431bc54, type: 3}
+--- !u!4 &568521713097822656 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5834081339307473133, guid: 3f30dea82f04e4e0d801c946f431bc54, type: 3}
+  m_PrefabInstance: {fileID: 2948422424155985619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3413834000754569528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f30dea82f04e4e0d801c946f431bc54, type: 3}

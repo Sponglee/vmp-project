@@ -25,8 +25,7 @@ public class SwingAttack : AttackBase
 
         base.Attack();
 
-        var size = Physics.OverlapSphereNonAlloc(transform.position, SwingRadius, hitColliders,
-            _attackProvider.GetData().LayerMask);
+        var size = Physics.OverlapSphereNonAlloc(transform.position, SwingRadius, hitColliders, LayerMask);
 
         for (int i = 0; i < size; i++)
         {
@@ -44,8 +43,8 @@ public class SwingAttack : AttackBase
             ref var cachedDamageComponent =
                 ref targetEntity.Entity.GetComponent<CachedDamageComponent>();
 
-            cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
-            cachedDamageComponent.HitFx = attackComponent.HitFx;
+            cachedDamageComponent.DamageCached += AttackDamage;
+            cachedDamageComponent.HitFx = HitFx;
         }
         else
         {
@@ -53,8 +52,8 @@ public class SwingAttack : AttackBase
             ref var cachedDamageComponent =
                 ref targetEntity.Entity.GetComponent<CachedDamageComponent>();
 
-            cachedDamageComponent.DamageCached += attackComponent.AttackDamage;
-            cachedDamageComponent.HitFx = attackComponent.HitFx;
+            cachedDamageComponent.DamageCached += AttackDamage;
+            cachedDamageComponent.HitFx = HitFx;
         }
     }
 }
