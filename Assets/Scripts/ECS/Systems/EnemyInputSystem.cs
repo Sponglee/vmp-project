@@ -1,6 +1,7 @@
 using Anthill.Inject;
 using Scellecs.Morpeh;
 using Scellecs.Morpeh.Systems;
+using Unity.Collections;
 using UnityEngine;
 using Unity.IL2CPP.CompilerServices;
 using Unity.VisualScripting;
@@ -38,22 +39,7 @@ public sealed class EnemyInputSystem : UpdateSystem
 
             var position = transformComponent.Transform.position;
 
-            if (enemyInputComponent.IsTracking)
-            {
-                if (Vector3.Distance(transformComponent.Transform.position, targetPosition) <=
-                    enemyInputComponent.StoppingDistance)
-                {   
-                    enemyInputComponent.MovementProvider.GetData().HorizontalInput = 0f;
-                    enemyInputComponent.MovementProvider.GetData().VerticalInput = 0f;
-                    return;
-                }
-
-                enemyInputComponent.MovementProvider.GetData().HorizontalInput =
-                    (targetPosition - position).normalized.x;
-                enemyInputComponent.MovementProvider.GetData().VerticalInput =
-                    (targetPosition - position).normalized.z;
-            }
-            else if (!enemyInputComponent.IsInitialized)
+            if (!enemyInputComponent.IsInitialized)
             {
                 enemyInputComponent.MovementProvider.GetData().HorizontalInput =
                     (targetPosition - position).normalized.x;
@@ -62,6 +48,32 @@ public sealed class EnemyInputSystem : UpdateSystem
                     (targetPosition - position).normalized.z;
 
                 enemyInputComponent.IsInitialized = true;
+            }
+
+            if (enemyInputComponent.IsTracking)
+            {
+                if (Vector3.Distance(transformComponent.Transform.position, targetPosition) <
+                    enemyInputComponent.StoppingDistance * 0.8f)
+                {
+                    enemyInputComponent.MovementProvider.GetData().HorizontalInput =
+                        -(targetPosition - position).normalized.x;
+                    enemyInputComponent.MovementProvider.GetData().VerticalInput =
+                        -(targetPosition - position).normalized.z;
+                }
+                else if (Vector3.Distance(transformComponent.Transform.position, targetPosition) <=
+                         enemyInputComponent.StoppingDistance)
+
+                {
+                    enemyInputComponent.MovementProvider.GetData().HorizontalInput = 0f;
+                    enemyInputComponent.MovementProvider.GetData().VerticalInput = 0f;
+                }
+                else
+                {
+                    enemyInputComponent.MovementProvider.GetData().HorizontalInput =
+                        (targetPosition - position).normalized.x;
+                    enemyInputComponent.MovementProvider.GetData().VerticalInput =
+                        (targetPosition - position).normalized.z;
+                }
             }
         }
     }

@@ -12,6 +12,8 @@ public sealed class EnemySpawnSystem : UpdateSystem
 {
     private Filter _spawnerFilter;
     private Filter _playerFilter;
+    private SpawnerData _spawnerData;
+
 
     [Inject] public Game Game { get; set; }
 
@@ -20,31 +22,46 @@ public sealed class EnemySpawnSystem : UpdateSystem
         AntInject.Inject<EnemySpawnSystem>(this);
         _spawnerFilter = this.World.Filter.With<EnemySpawnComponent>().Build();
         _playerFilter = this.World.Filter.With<PlayerTagComponent>().Build();
+        _spawnerData = GameSettings.GetReference<SpawnerData>();
     }
 
     public override void OnUpdate(float deltaTime)
     {
         if (Game.GameManager.IsPaused) return;
 
+
         foreach (var entity in _spawnerFilter)
         {
             ref var enemySpawnComponent = ref entity.GetComponent<EnemySpawnComponent>();
 
-            enemySpawnComponent.SpawnTimer += deltaTime;
+            if (!enemySpawnComponent.IsInitialized)
+            {
+                enemySpawnComponent.SpawnTimer = _spawnerData.SpawnTime;
+                enemySpawnComponent.IsInitialized = true;
+                return;
+            }
 
-            if (enemySpawnComponent.SpawnTimer >= enemySpawnComponent.SpawnerData.SpawnTime)
+
+            enemySpawnComponent.SpawnTimer += deltaTime;
+            if (enemySpawnComponent.SpawnTimer >= _spawnerData.SpawnTime / _spawnerData.SpawnWaveAmount)
             {
                 enemySpawnComponent.SpawnTimer = 0f;
+                enemySpawnComponent.SpawnedUnitsAmount++;
+                SpawnEnemy(enemySpawnComponent);
+            }
 
-                SpawnWave(enemySpawnComponent);
+
+            if (enemySpawnComponent.SpawnedUnitsAmount >= _spawnerData.SpawnWaveAmount)
+            {
+                enemySpawnComponent.SpawnTimer = 0f;
+                enemySpawnComponent.SpawnedUnitsAmount = 0;
             }
         }
     }
 
     private void SpawnWave(EnemySpawnComponent aSpawner)
     {
-        
-        for (int i = 0; i < aSpawner.SpawnerData.SpawnWaveAmount; i++)
+        for (int i = 0; i < _spawnerData.SpawnWaveAmount; i++)
         {
             SpawnEnemy(aSpawner);
         }
@@ -52,8 +69,8 @@ public sealed class EnemySpawnSystem : UpdateSystem
 
     private void SpawnEnemy(EnemySpawnComponent aSpawner)
     {
-        ObjectFactory.CreateObject(GetEnemyToSpawn(aSpawner.SpawnerData), aSpawner.SpawnerTransform,
-            GetPositionToSpawn(aSpawner.SpawnerData));
+        ObjectFactory.CreateObject(GetEnemyToSpawn(_spawnerData), aSpawner.SpawnerTransform,
+            GetPositionToSpawn(_spawnerData));
     }
 
     private GameObject GetEnemyToSpawn(SpawnerData aSpawnData)

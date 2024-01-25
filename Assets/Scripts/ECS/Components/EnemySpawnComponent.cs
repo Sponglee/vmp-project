@@ -9,7 +9,8 @@ using UnityEngine;
 [System.Serializable]
 public struct EnemySpawnComponent : IComponent
 {
+    public bool IsInitialized;
     public float SpawnTimer;
+    public int SpawnedUnitsAmount;
     public Transform SpawnerTransform;
-    public SpawnerData SpawnerData;
 }

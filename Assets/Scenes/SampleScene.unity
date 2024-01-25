@@ -1168,9 +1168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
+    IsInitialized: 0
     SpawnTimer: 1
+    SpawnedUnitsAmount: 0
     SpawnerTransform: {fileID: 969630973}
-    SpawnerData: {fileID: 11400000, guid: 7acb890bc8a8b4544b74155dcaafebb4, type: 2}
 --- !u!114 &969630975
 MonoBehaviour:
   m_ObjectHideFlags: 0

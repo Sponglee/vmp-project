@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    StoppingDistance: 10
+    StoppingDistance: 2
     IsTracking: 1
     IsInitialized: 0
     MovementProvider: {fileID: 9128319128292686947}

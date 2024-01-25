@@ -9,9 +9,9 @@ using UnityEngine;
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 public sealed class EnemySpawnProvider : MonoProvider<EnemySpawnComponent>
 {
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.grey;
-        Gizmos.DrawWireSphere(transform.position,  GetSerializedData().SpawnerData.SpawnRadius);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.grey;
+    //     Gizmos.DrawWireSphere(transform.position, GetSerializedData().SpawnerData.SpawnRadius);
+    // }
 }
