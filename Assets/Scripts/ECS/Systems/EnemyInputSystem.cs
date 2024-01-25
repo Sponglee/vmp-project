@@ -40,6 +40,14 @@ public sealed class EnemyInputSystem : UpdateSystem
 
             if (enemyInputComponent.IsTracking)
             {
+                if (Vector3.Distance(transformComponent.Transform.position, targetPosition) <=
+                    enemyInputComponent.StoppingDistance)
+                {   
+                    enemyInputComponent.MovementProvider.GetData().HorizontalInput = 0f;
+                    enemyInputComponent.MovementProvider.GetData().VerticalInput = 0f;
+                    return;
+                }
+
                 enemyInputComponent.MovementProvider.GetData().HorizontalInput =
                     (targetPosition - position).normalized.x;
                 enemyInputComponent.MovementProvider.GetData().VerticalInput =
