@@ -42,7 +42,7 @@ public sealed class AimSystem : UpdateSystem
 
                 var dir = turretRotationComponent.TurretLookTarget.position -
                           turretRotationComponent.TurretPivot.position;
-                // dir.y = turretRotationComponent.TurretPivot.position.y;
+                dir.y = 0f;
 
 
                 turretRotationComponent.TurretPivot.rotation = Quaternion.Lerp(turretRotationComponent.StartRotation,

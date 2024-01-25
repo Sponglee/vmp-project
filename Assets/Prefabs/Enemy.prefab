@@ -116,7 +116,7 @@ MonoBehaviour:
     m_Bits: 64
   <HitFx>k__BackingField: {fileID: 0}
   <AttackDamage>k__BackingField: 0.1
-  <AttackRange>k__BackingField: 5
+  <AttackRange>k__BackingField: 10
   <AttackCooldown>k__BackingField: 2
   ShootingPoints:
   - {fileID: 3839328428442466871}
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
-    StoppingDistance: 2
+    StoppingDistance: 9
     IsTracking: 1
     IsInitialized: 0
     MovementProvider: {fileID: 9128319128292686947}
