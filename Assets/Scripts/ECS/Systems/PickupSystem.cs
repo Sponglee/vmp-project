@@ -70,11 +70,22 @@ public sealed class PickupSystem : UpdateSystem
                 {
                     transformComponent.Transform.position =
                         Vector3.Lerp(pickableComponent.StartPosition, pickableComponent.TargetTransform.position +
-                                                                      Vector3.up *
-                                                                      pickableComponent.AnimationCurve.Evaluate(
-                                                                          pickableComponent.Timer /
-                                                                          pickableComponent.PickupDuration),
-                            pickableComponent.Timer / pickableComponent.PickupDuration);
+                                                                      // Vector3.Scale((pickableComponent.StartPosition -
+                                                                      //             pickableComponent.TargetTransform
+                                                                      //                 .position),
+                                                                      //         new Vector3(1, 0, 1))
+                                                                      //     .normalized * 5f *
+                                                                      // pickableComponent.PickupHorizontalCurve
+                                                                      //     .Evaluate(
+                                                                      //         pickableComponent.Timer /
+                                                                      //         pickableComponent.PickupDuration) +
+                                                                      Vector3.up * pickableComponent.PickupCurveHeight *
+                                                                      pickableComponent.PickupVerticalCurve
+                                                                          .Evaluate(
+                                                                              pickableComponent.Timer /
+                                                                              pickableComponent.PickupDuration),
+                            pickableComponent.Timer /
+                            pickableComponent.PickupDuration);
                 }
 
                 if (pickableComponent.IsInitialized && pickableComponent.IsPickedUp &&

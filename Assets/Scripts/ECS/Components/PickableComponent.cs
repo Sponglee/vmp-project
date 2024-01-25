@@ -12,7 +12,9 @@ public struct PickableComponent : IComponent
     [field: SerializeField] public float ExpValue { get; set; }
     [field: SerializeField] public float PickupDuration { get; set; }
     [field: SerializeField] public float PickupRadius { get; set; }
-    [field: SerializeField] public AnimationCurve AnimationCurve { get; set; }
+    [field: SerializeField] public float PickupCurveHeight { get; set; }
+    [field: SerializeField] public AnimationCurve PickupVerticalCurve { get; set; }
+
     public float Timer { get; set; }
     public Transform TargetTransform { get; set; }
     public Vector3 StartPosition { get; set; }

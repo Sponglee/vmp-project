@@ -96,11 +96,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2996709131487074634, guid: 701b6307975dd435181588e0c39ee422, type: 3}
       propertyPath: serializedData.<PickupRadius>k__BackingField
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2996709131487074634, guid: 701b6307975dd435181588e0c39ee422, type: 3}
       propertyPath: serializedData.<PickupDuration>k__BackingField
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2996709131487074638, guid: 701b6307975dd435181588e0c39ee422, type: 3}
       propertyPath: m_Name

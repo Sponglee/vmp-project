@@ -120,25 +120,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializedData:
     <ExpValue>k__BackingField: 1
-    <PickupDuration>k__BackingField: 0.1
-    <PickupRadius>k__BackingField: 3
-    <AnimationCurve>k__BackingField:
+    <PickupDuration>k__BackingField: 0.3
+    <PickupRadius>k__BackingField: 5
+    <PickupCurveHeight>k__BackingField: 5
+    <PickupVerticalCurve>k__BackingField:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.0010681152
-        inSlope: 2.078648
-        outSlope: 2.078648
+        value: -0.0018701954
+        inSlope: -7.4307995
+        outSlope: -7.4307995
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.049933434
+        outWeight: 0.029654536
+      - serializedVersion: 3
+        time: 0.14898536
+        value: -0.0014907746
+        inSlope: 3.3053386
+        outSlope: 3.3053386
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.03725028
       - serializedVersion: 3
         time: 0.50097215
         value: 0.5000043
-        inSlope: -0.002398342
-        outSlope: -0.002398342
+        inSlope: 0.21201134
+        outSlope: 0.21201134
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
