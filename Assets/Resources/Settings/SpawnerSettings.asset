@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxSimultaniousSpawned: 30
   SpawnRadius: 30
-  SpawnTime: 10
-  SpawnWaveAmount: 15
+  SpawnTime: 10000
+  SpawnWaveAmount: 5
   enemyPrefabs:
   - {fileID: 9128319128292686956, guid: 42822457d02d7451eb86dc0171512b75, type: 3}

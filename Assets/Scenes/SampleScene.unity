@@ -929,6 +929,7 @@ MonoBehaviour:
   ShootingPoints:
   - {fileID: 1738386291}
   - {fileID: 304633846}
+  IsHoming: 1
   DelayBeforeAttack: 0
   projectileFx: {fileID: 8550428095041918667, guid: 43bf4e35463384615a3a93bb62eb05a4, type: 3}
 --- !u!1 &933619415
@@ -2180,6 +2181,10 @@ PrefabInstance:
     - target: {fileID: 1092679559, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: serializedData.HealthBarOffset.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906403632, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
+      propertyPath: IsHoming
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1906403632, guid: 1fdacbf2b79114a90b7ed25996406f23, type: 3}
       propertyPath: ShootingPoints.Array.size

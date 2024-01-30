@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8550428095041918666}
   - component: {fileID: 8550428095041918668}
   - component: {fileID: 8550428095041918669}
+  - component: {fileID: 5918053051895126887}
   m_Layer: 0
   m_Name: BulletFX
   m_TagString: Untagged
@@ -3848,7 +3849,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4887,6 +4888,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5918053051895126887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550428095041918667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521eb66384eee418ebdd476e0218ab5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticleSystem: {fileID: 8550428095041918668}
 --- !u!1001 &8550428095121563713
 PrefabInstance:
   m_ObjectHideFlags: 0

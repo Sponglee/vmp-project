@@ -120,7 +120,7 @@ MonoBehaviour:
   <AttackCooldown>k__BackingField: 2
   ShootingPoints:
   - {fileID: 3839328428442466871}
-  DelayBeforeAttack: 0
+  DelayBeforeAttack: 0.5
   projectileFx: {fileID: 1666785221477689161, guid: baa8e3b684556430bbab899a3da47ce5, type: 3}
 --- !u!114 &3646369175787113941
 MonoBehaviour:
