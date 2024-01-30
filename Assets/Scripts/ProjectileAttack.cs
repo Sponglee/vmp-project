@@ -11,7 +11,6 @@ using UnityEngine.Serialization;
 
 public class ProjectileAttack : AttackBase
 {
-    public bool IsHoming = false;
     public float DelayBeforeAttack;
 
     public GameObject projectileFx;
@@ -59,39 +58,39 @@ public class ProjectileAttack : AttackBase
 
         Transform shootingPoint = GetNextShootingPoint();
 
-        ProjectileBase tmpProjectile = ObjectFactory.CreateObject(projectileFx,
-                null, shootingPoint.position, _aimProvider.GetData().GetAimRotation(shootingPoint, IsHoming))
-            .GetComponent<ProjectileBase>();
+        Destroy(
+            ObjectFactory.CreateObject(projectileFx,
+                null, shootingPoint.position, _aimProvider.GetData().GetAimRotation(shootingPoint)), 3f);
 
-        Destroy(tmpProjectile.gameObject, 3f);
-
-        tmpProjectile.OnProjectileCollision = ProjectileHitCallback;
+        DealDamage(ref _attackProvider.GetData());
     }
 
-    private void ProjectileHitCallback(EntityProvider collisionEntity)
+    private void DealDamage(ref AttackComponent attackComponent)
     {
-        if (collisionEntity == null) return;
+        if (targetEntity == null) return;
 
-        if (collisionEntity.Entity.Has<CachedDamageComponent>())
+        if (targetEntity.Entity.Has<CachedDamageComponent>())
         {
             ref var cachedDamageComponent =
-                ref collisionEntity.Entity.GetComponent<CachedDamageComponent>();
+                ref targetEntity.Entity.GetComponent<CachedDamageComponent>();
+
             cachedDamageComponent.DamageCached += AttackDamage;
             cachedDamageComponent.HitFx = HitFx;
         }
         else
         {
-            collisionEntity.Entity.AddComponent<CachedDamageComponent>();
+            targetEntity.Entity.AddComponent<CachedDamageComponent>();
             ref var cachedDamageComponent =
-                ref collisionEntity.Entity.GetComponent<CachedDamageComponent>();
+                ref targetEntity.Entity.GetComponent<CachedDamageComponent>();
+
             cachedDamageComponent.DamageCached += AttackDamage;
             cachedDamageComponent.HitFx = HitFx;
         }
 
 
-        if (collisionEntity != null && collisionEntity.Entity.Has<TargetedTagComponent>())
+        if (targetEntity != null && targetEntity.Entity.Has<TargetedTagComponent>())
         {
-            collisionEntity.Entity.RemoveComponent<TargetedTagComponent>();
+            targetEntity.Entity.RemoveComponent<TargetedTagComponent>();
         }
     }
 

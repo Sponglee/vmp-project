@@ -23,8 +23,7 @@ public sealed class MovementSystem : FixedUpdateSystem
     public override void OnAwake()
     {
         AntInject.Inject<MovementSystem>(this);
-        filter = this.World.Filter.With<MovementComponent>().With<TransformComponent>().Without<OffScreenTagComponent>()
-            .Without<StopTagComponent>()
+        filter = this.World.Filter.With<MovementComponent>().Without<OffScreenTagComponent>().With<TransformComponent>()
             .Build();
     }
 

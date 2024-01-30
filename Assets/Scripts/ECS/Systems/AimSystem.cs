@@ -36,18 +36,6 @@ public sealed class AimSystem : UpdateSystem
                 turretRotationComponent.SetRotateTarget(null);
             }
 
-            //Remove Movement Component if stop while aiming
-            if (turretRotationComponent.IsRotationInProgress && turretRotationComponent.StopWhileAiming &&
-                !turretEntity.Has<StopTagComponent>())
-            {
-                turretEntity.AddComponent<StopTagComponent>();
-            }
-            else if (!turretRotationComponent.IsRotationInProgress && turretRotationComponent.StopWhileAiming &&
-                     turretEntity.Has<StopTagComponent>())
-            {
-                turretEntity.RemoveComponent<StopTagComponent>();
-            }
-
             if (turretRotationComponent.IsRotationInProgress && turretRotationComponent.TurretLookTarget != null)
             {
                 turretRotationComponent.LookTimer += deltaTime;
@@ -81,10 +69,10 @@ public sealed class AimSystem : UpdateSystem
                     turretRotationComponent.IsRotationInProgress = false;
                 }
             }
-            else if (!turretRotationComponent.IsRotationInProgress && turretRotationComponent.TurretLookTarget != null)
+            else if (turretRotationComponent.IsRotationInProgress && turretRotationComponent.TurretLookTarget != null)
             {
-                turretRotationComponent.ResetTimer += deltaTime;
-                if (turretRotationComponent.ResetTimer >= turretRotationComponent.TurretRotationResetTime)
+                turretRotationComponent.LookTimer += deltaTime;
+                if (turretRotationComponent.LookTimer >= turretRotationComponent.TurretRotationResetTime)
                 {
                     turretRotationComponent.SetRotateTarget(null);
                 }

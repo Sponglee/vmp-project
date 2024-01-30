@@ -20,7 +20,6 @@ public sealed class OffScreenMovementSystem : FixedUpdateSystem
     {
         AntInject.Inject<OffScreenMovementSystem>(this);
         filter = this.World.Filter.With<MovementComponent>().With<TransformComponent>().With<OffScreenTagComponent>()
-            .Without<StopTagComponent>()
             .Build();
     }
 

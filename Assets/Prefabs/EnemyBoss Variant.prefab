@@ -7,18 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4121370727384152182, guid: 42822457d02d7451eb86dc0171512b75, type: 3}
-      propertyPath: <AttackRange>k__BackingField
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4550828103904052193, guid: 42822457d02d7451eb86dc0171512b75, type: 3}
-      propertyPath: serializedData.StoppingDistance
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7911010002863459905, guid: 42822457d02d7451eb86dc0171512b75, type: 3}
-      propertyPath: serializedData.<StopWhileAiming>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9128319128292686945, guid: 42822457d02d7451eb86dc0171512b75, type: 3}
       propertyPath: serializedData.MaxHealth
       value: 100
