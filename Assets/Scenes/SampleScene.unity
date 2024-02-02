@@ -929,7 +929,7 @@ MonoBehaviour:
   ShootingPoints:
   - {fileID: 1738386291}
   - {fileID: 304633846}
-  IsHoming: 1
+  IsHoming: 0
   DelayBeforeAttack: 0
   projectileFx: {fileID: 8550428095041918667, guid: 43bf4e35463384615a3a93bb62eb05a4, type: 3}
 --- !u!1 &933619415
