@@ -21,9 +21,10 @@ public sealed class EnemyInputSystem : UpdateSystem
         AntInject.Inject<EnemyInputSystem>(this);
 
         _enemyInputFilter = this.World.Filter.With<EnemyInputComponent>().With<TransformComponent>()
-            .With<EnemyTagComponent>()
+            .With<EnemyTagComponent>().Without<StopTagComponent>()
             .Build();
-        _playerTagFilter = this.World.Filter.With<PlayerTagComponent>().With<TransformComponent>().Build();
+        _playerTagFilter = this.World.Filter.With<PlayerTagComponent>().With<TransformComponent>()
+            .Without<StopTagComponent>().Build();
     }
 
     public override void OnUpdate(float deltaTime)

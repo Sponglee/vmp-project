@@ -10,8 +10,11 @@ using IComponent = Scellecs.Morpeh.IComponent;
 [System.Serializable]
 public struct AimComponent : IComponent
 {
+    [field: SerializeField] public bool StopWhileAiming { get; set; }
     [field: SerializeField] public Transform TurretLookTarget { get; set; }
     [field: SerializeField] public float LookTimer { get; set; }
+    [field: SerializeField] public float ResetTimer { get; set; }
+
     [field: SerializeField] public bool IsRotationInProgress { get; set; }
     public Quaternion StartRotation { get; set; }
 
@@ -26,13 +29,31 @@ public struct AimComponent : IComponent
         TurretLookTarget = aTarget;
         StartRotation = TurretPivot.rotation;
         LookTimer = 0f;
+        ResetTimer = 0f;
         IsRotationInProgress = true;
     }
 
     public Quaternion GetAimRotation(Transform aPoint)
     {
-        var dir = (TurretLookTarget.position -
+        var dir = TurretPivot.forward;
+
+        return Quaternion.LookRotation(dir, Vector3.up);
+    }
+
+    public Quaternion GetAimRotation(Transform aPoint, bool IsHoming)
+    {
+        Vector3 dir = default;
+
+        if (IsHoming)
+        {
+            dir = (TurretLookTarget.position -
                    aPoint.position) + Vector3.up * .5f;
+        }
+        else
+        {
+            dir = TurretPivot.forward;
+        }
+
 
         return Quaternion.LookRotation(dir, Vector3.up);
     }
