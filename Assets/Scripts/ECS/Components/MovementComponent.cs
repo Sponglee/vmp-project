@@ -11,6 +11,7 @@ public struct MovementComponent : IComponent
     [field: SerializeField] public float HorizontalInput { get; set; }
     [field: SerializeField] public float VerticalInput { get; set; }
     [field: SerializeField] public bool IsMoving { get; set; }
+    [field: SerializeField] public float RotationSpeedRatio { get; set; }
 
     public float Speed;
 }

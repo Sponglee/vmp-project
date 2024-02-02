@@ -388,6 +388,7 @@ MonoBehaviour:
     <HorizontalInput>k__BackingField: 0
     <VerticalInput>k__BackingField: 0
     <IsMoving>k__BackingField: 0
+    <RotationSpeedRatio>k__BackingField: 0.5
     Speed: 1
 --- !u!114 &4550828103904052193
 MonoBehaviour:

@@ -11,8 +11,6 @@ using Unity.IL2CPP.CompilerServices;
 [CreateAssetMenu(menuName = "ECS/Systems/" + nameof(MovementSystem))]
 public sealed class MovementSystem : FixedUpdateSystem
 {
-    private const float LOOK_SPEED_SMOOTHING = 0.5f;
-
     private Filter filter;
 
     private Vector3 direciton;
@@ -52,7 +50,7 @@ public sealed class MovementSystem : FixedUpdateSystem
                 transformComponent.Transform.rotation = Quaternion.LookRotation(Vector3.Lerp(
                     transformComponent.Transform.forward,
                     direciton,
-                    LOOK_SPEED_SMOOTHING), Vector3.up);
+                    movementComponent.RotationSpeedRatio), Vector3.up);
             }
             else
             {
