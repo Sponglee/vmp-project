@@ -63,9 +63,18 @@ public class ProjectileAttack : AttackBase
                 null, shootingPoint.position, _aimProvider.GetData().GetAimRotation(shootingPoint, IsHoming))
             .GetComponent<ProjectileBase>();
 
-        Destroy(tmpProjectile.gameObject, 3f);
+        // Destroy(tmpProjectile.gameObject, tmpProjectile.ProjectileFlightTime + .25f);
 
         tmpProjectile.OnProjectileCollision = ProjectileHitCallback;
+
+        if (IsHoming)
+        {
+            tmpProjectile.InitializeProjectile(targetEntity.transform);
+        }
+        else
+        {
+            tmpProjectile.InitializeProjectile(targetEntity.transform.position);
+        }
     }
 
     private void ProjectileHitCallback(EntityProvider collisionEntity)
@@ -106,8 +115,16 @@ public class ProjectileAttack : AttackBase
 
             if (targetEntity == null) continue;
 
-            if (tmpEntity != null && Vector3.Distance(tmpEntity.transform.position, transform.position) <
-                Vector3.Distance(targetEntity.transform.position, transform.position))
+            if (targetEntity != null &&
+                targetEntity.Entity.Has<TargetedTagComponent>() &&
+                targetEntity.Entity.GetComponent<TargetedTagComponent>().TargetAttackId !=
+                transform.name) //Check if target was already targetted with same different attack Type
+            {
+                continue;
+            }
+            else if (tmpEntity != null && Vector3.Distance(tmpEntity.transform.position, transform.position) <
+                     Vector3.Distance(targetEntity.transform.position,
+                         transform.position)) //Check if target is further than previous one
             {
                 continue;
             }
@@ -120,7 +137,9 @@ public class ProjectileAttack : AttackBase
         if (tmpEntity != null && !tmpEntity.Entity.Has<TargetedTagComponent>())
         {
             tmpEntity.Entity.AddComponent<TargetedTagComponent>();
+            tmpEntity.Entity.GetComponent<TargetedTagComponent>().TargetAttackId = transform.name;
         }
+
 
         return tmpEntity;
     }

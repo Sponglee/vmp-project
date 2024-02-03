@@ -175,9 +175,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4398487294524007823}
-  - component: {fileID: 1838185573596162082}
   - component: {fileID: 8550428095419348389}
   - component: {fileID: 8550428095419348388}
+  - component: {fileID: -4221302879779160809}
   m_Layer: 0
   m_Name: RocketProjectile
   m_TagString: Untagged
@@ -201,19 +201,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -30.057, y: 90, z: 0}
---- !u!114 &1838185573596162082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4398487294524007822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521eb66384eee418ebdd476e0218ab5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProjectileSpeed: 20
 --- !u!136 &8550428095419348389
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -224,8 +211,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.08
-  m_Height: 0.1
+  m_Radius: 0.2
+  m_Height: 0.2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.02}
 --- !u!54 &8550428095419348388
@@ -244,6 +231,56 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4221302879779160809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398487294524007822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d132134a35a4e789f22399a6ddd79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsInitialized: 0
+  ProjectileFlightTime: 0.75
+  FlightTrajectoryY:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0010681152
+      inSlope: 17.467102
+      outSlope: 17.467102
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.026316665
+    - serializedVersion: 3
+      time: 0.50097215
+      value: 5
+      inSlope: -0.018909454
+      outSlope: -0.018909454
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0006104
+      value: -0.0045166016
+      inSlope: -22.634129
+      outSlope: -22.634129
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.019252641
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MovementTimer: 0
+  InitialLaunchDuration: 0.25
+  InitialLaunchSpeed: 15
 --- !u!1 &5450386818272705464
 GameObject:
   m_ObjectHideFlags: 0

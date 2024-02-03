@@ -902,7 +902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &795809054
 Transform:
   m_ObjectHideFlags: 0
@@ -988,7 +988,7 @@ MonoBehaviour:
     m_Bits: 128
   <AttackDamage>k__BackingField: 1
   <AttackRange>k__BackingField: 10
-  <AttackCooldown>k__BackingField: 0.1
+  <AttackCooldown>k__BackingField: 0.25
   ShootingPoints:
   - {fileID: 1738386291}
   - {fileID: 304633846}
@@ -2287,8 +2287,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   <AttackDamage>k__BackingField: 1
-  <AttackRange>k__BackingField: 10
-  <AttackCooldown>k__BackingField: 1
+  <AttackRange>k__BackingField: 20
+  <AttackCooldown>k__BackingField: 1.5
   ShootingPoints:
   - {fileID: 1908648325}
   - {fileID: 874248534}

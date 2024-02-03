@@ -8,4 +8,5 @@ using UnityEngine;
 [System.Serializable]
 public struct TargetedTagComponent : IComponent
 {
+    public string TargetAttackId;
 }

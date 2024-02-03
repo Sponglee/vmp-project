@@ -13,49 +13,43 @@ public class ProjectileBase : MonoBehaviour
 
     public bool IsInitialized = false;
     public float ProjectileFlightTime = 2f;
-
+    public AnimationCurve FlightTrajectoryY;
     public float MovementTimer = 0f;
-    private Vector3 startPosition;
-    private Vector3 endPosition;
-    private Transform projectileTarget;
+
+    protected Vector3 startPosition;
+    protected Vector3 endPosition;
+    protected Transform projectileTarget;
 
 
-    private void Update()
+    protected virtual void Update()
     {
         if (!IsInitialized) return;
 
-        if (projectileTarget != null)
-        {
-            endPosition = projectileTarget.position;
-        }
-
-        transform.position = Vector3.Lerp(startPosition, endPosition, MovementTimer / ProjectileFlightTime);
-        transform.rotation =
-            Quaternion.LookRotation(Vector3.Lerp(startPosition, endPosition,
-                MovementTimer + .25f / ProjectileFlightTime) - transform.position, Vector3.up);
+        UpdateProjectilePosition();
+        UpdateProjectileRotation();
 
         MovementTimer += Time.deltaTime;
 
-        if (MovementTimer / ProjectileFlightTime >= 1f)
+        if (MovementTimer / ProjectileFlightTime > 1f)
         {
             IsInitialized = false;
             projectileTarget = null;
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         var entity = other.GetComponent<EntityProvider>();
 
-        if (entity == null) return;
+        if (entity != null)
+        {
+            OnProjectileCollision?.Invoke(entity);
+        }
 
-
-        OnProjectileCollision?.Invoke(entity);
         Destroy(gameObject);
     }
 
-    public void InitializeProjectile(Transform aProjectileTarget)
+    public virtual void InitializeProjectile(Transform aProjectileTarget)
     {
         MovementTimer = 0f;
         startPosition = transform.position;
@@ -65,7 +59,7 @@ public class ProjectileBase : MonoBehaviour
         IsInitialized = true;
     }
 
-    public void InitializeProjectile(Vector3 aProjectileDestination)
+    public virtual void InitializeProjectile(Vector3 aProjectileDestination)
     {
         MovementTimer = 0f;
         startPosition = transform.position;
@@ -73,5 +67,24 @@ public class ProjectileBase : MonoBehaviour
         projectileTarget = null;
 
         IsInitialized = true;
+    }
+
+    protected virtual void UpdateProjectilePosition()
+    {
+        if (projectileTarget != null)
+        {
+            endPosition = projectileTarget.position;
+        }
+
+        transform.position = Vector3.Lerp(startPosition,
+            endPosition + Vector3.up * FlightTrajectoryY.Evaluate(MovementTimer / ProjectileFlightTime),
+            MovementTimer / ProjectileFlightTime);
+    }
+
+    protected virtual void UpdateProjectileRotation()
+    {
+        transform.rotation = Quaternion.LookRotation(Vector3.Lerp(startPosition,
+            endPosition + Vector3.up * FlightTrajectoryY.Evaluate(MovementTimer / ProjectileFlightTime),
+            MovementTimer + .25f / ProjectileFlightTime) - transform.position, Vector3.up);
     }
 }
