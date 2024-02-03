@@ -19194,7 +19194,7 @@ GameObject:
   - component: {fileID: 6100162025514276618}
   - component: {fileID: 6730715198006686500}
   m_Layer: 0
-  m_Name: BulletHitFx
+  m_Name: ProjectileHitFx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

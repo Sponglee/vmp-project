@@ -85,6 +85,6 @@ public class ProjectileBase : MonoBehaviour
     {
         transform.rotation = Quaternion.LookRotation(Vector3.Lerp(startPosition,
             endPosition + Vector3.up * FlightTrajectoryY.Evaluate(MovementTimer / ProjectileFlightTime),
-            MovementTimer + .25f / ProjectileFlightTime) - transform.position, Vector3.up);
+            MovementTimer + .25f / ProjectileFlightTime) - transform.position);
     }
 }
