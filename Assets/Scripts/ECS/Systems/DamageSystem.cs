@@ -32,7 +32,7 @@ public sealed class DamageSystem : UpdateSystem
                 healthComponent.CurrentHealth -= cachedDamageComponent.DamageCached;
                 cachedDamageComponent.DamageCached -= cachedDamageComponent.DamageCached;
                 //Spawn numbers here via ui numbers service
-
+                // Debug.Log(cachedDamageComponent.HitFx);
                 if (cachedDamageComponent.HitFx != null)
                 {
                     Destroy(

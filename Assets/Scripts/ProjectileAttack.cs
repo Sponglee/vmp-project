@@ -11,10 +11,10 @@ using UnityEngine.Serialization;
 
 public class ProjectileAttack : AttackBase
 {
+    public GameObject projectileFx;
     public bool IsHoming = false;
     public float DelayBeforeAttack;
 
-    public GameObject projectileFx;
 
     protected AimProvider _aimProvider;
 

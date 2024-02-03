@@ -6,12 +6,12 @@ public class AttackBase : MonoBehaviour, IAttack
 {
     protected AttackProvider _attackProvider;
     [field: SerializeField] public LayerMask LayerMask { get; set; }
-    [field: SerializeField] public GameObject HitFx { get; set; }
     [field: SerializeField] public float AttackDamage { get; set; }
     [field: SerializeField] public float AttackRange { get; set; }
     [field: SerializeField] public float AttackCooldown { get; set; }
 
     public Transform[] ShootingPoints;
+    [field: SerializeField] public GameObject HitFx { get; set; }
 
     private int currentShootingPoint = 0;
 

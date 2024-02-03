@@ -114,14 +114,15 @@ MonoBehaviour:
   <LayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <HitFx>k__BackingField: {fileID: 0}
   <AttackDamage>k__BackingField: 0.1
   <AttackRange>k__BackingField: 10
   <AttackCooldown>k__BackingField: 2
   ShootingPoints:
   - {fileID: 3839328428442466871}
-  DelayBeforeAttack: 0.5
+  <HitFx>k__BackingField: {fileID: 0}
   projectileFx: {fileID: 1666785221477689161, guid: baa8e3b684556430bbab899a3da47ce5, type: 3}
+  IsHoming: 0
+  DelayBeforeAttack: 0.5
 --- !u!114 &3646369175787113941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,11 +225,11 @@ MonoBehaviour:
   <LayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 0
-  <HitFx>k__BackingField: {fileID: 0}
   <AttackDamage>k__BackingField: 0
   <AttackRange>k__BackingField: 0
   <AttackCooldown>k__BackingField: 0
   ShootingPoints: []
+  <HitFx>k__BackingField: {fileID: 0}
   SwingRadius: 1
   SwingEmitter: {fileID: 0}
 --- !u!114 &6873274477323276738
@@ -446,8 +447,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedData:
+    <StopWhileAiming>k__BackingField: 0
     <TurretLookTarget>k__BackingField: {fileID: 0}
     <LookTimer>k__BackingField: 0
+    <ResetTimer>k__BackingField: 0
     <IsRotationInProgress>k__BackingField: 0
     TurretPivot: {fileID: 4320171805739988693}
     AimDuration: 1

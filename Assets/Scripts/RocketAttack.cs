@@ -8,10 +8,11 @@ using UnityEngine;
 
 public class RocketAttack : AttackBase
 {
+    public GameObject projectileFx;
+
     public bool IsHoming = false;
     public float DelayBeforeAttack;
 
-    public GameObject projectileFx;
 
     protected AimProvider _aimProvider;
 
@@ -40,17 +41,12 @@ public class RocketAttack : AttackBase
             return;
         }
 
-        Aim();
+        ReleaseRocket();
         base.Attack();
     }
 
-    private void Aim()
-    {
-        _aimProvider.GetData().SetRotateTarget(targetEntity.transform);
-        DOVirtual.DelayedCall(_aimProvider.GetData().AimDuration + DelayBeforeAttack, AimComplete);
-    }
 
-    private void AimComplete()
+    private void ReleaseRocket()
     {
         _attackProvider.GetData().IsArmed = false;
 
@@ -60,9 +56,11 @@ public class RocketAttack : AttackBase
                 null, shootingPoint.position, _aimProvider.GetData().GetAimRotation(shootingPoint, IsHoming))
             .GetComponent<ProjectileBase>();
 
-        Destroy(tmpProjectile.gameObject, 3f);
+        Destroy(tmpProjectile.gameObject, 5f);
 
         tmpProjectile.OnProjectileCollision = ProjectileHitCallback;
+
+        tmpProjectile.InitializeProjectile(targetEntity.transform);
     }
 
     private void ProjectileHitCallback(EntityProvider collisionEntity)
@@ -124,7 +122,7 @@ public class RocketAttack : AttackBase
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
 
         Gizmos.DrawWireSphere(transform.position, AttackRange);
     }

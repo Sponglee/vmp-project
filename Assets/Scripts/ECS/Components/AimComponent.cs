@@ -51,7 +51,7 @@ public struct AimComponent : IComponent
         }
         else
         {
-            dir = TurretPivot.forward;
+            dir = aPoint.forward; //TurretPivot.forward;
         }
 
 
