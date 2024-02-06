@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInitialized: 0
-  ProjectileFlightTime: 0.5
+  ProjectileFlightTime: 0.25
   FlightTrajectoryY:
     serializedVersion: 2
     m_Curve:
@@ -313,8 +313,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   MovementTimer: 0
-  InitialLaunchDuration: 0.5
-  InitialLaunchSpeed: {x: 5, y: 2}
+  InitialLaunchDuration: 0.75
+  InitialLaunchSpeed: {x: 15, y: 2}
 --- !u!1 &5059841462986942423
 GameObject:
   m_ObjectHideFlags: 0

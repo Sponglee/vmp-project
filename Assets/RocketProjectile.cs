@@ -30,17 +30,13 @@ public class RocketProjectile : ProjectileBase
     {
         if (!IsInitialized)
         {
-            transform.Translate(
-                Vector3.up * (Time.deltaTime * InitialLaunchSpeed.y) +
-                _forward * (Time.deltaTime * InitialLaunchSpeed.x),
-                Space.World);
+            transform.Translate(Vector3.forward * (Time.deltaTime * InitialLaunchSpeed.x),
+                Space.Self);
 
             _t.rotation = Quaternion.Lerp(startRotation,
                 Quaternion.LookRotation((endPosition - _t.position).normalized, Vector3.up),
                 MovementTimer / InitialLaunchDuration);
-            ;
-            // UpdateProjectilePosition();
-            // UpdateProjectileRotation();
+
             MovementTimer += Time.deltaTime;
 
             if (MovementTimer > InitialLaunchDuration)
@@ -82,8 +78,8 @@ public class RocketProjectile : ProjectileBase
 
     protected override void UpdateProjectileRotation()
     {
-        _t.rotation = Quaternion.LookRotation(Vector3.Lerp(startPosition,
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.Lerp(startPosition,
             endPosition + Vector3.up * FlightTrajectoryY.Evaluate(MovementTimer / ProjectileFlightTime),
-            MovementTimer + .25f / ProjectileFlightTime) - transform.position);
+            MovementTimer / ProjectileFlightTime) - transform.position), .05f);
     }
 }
