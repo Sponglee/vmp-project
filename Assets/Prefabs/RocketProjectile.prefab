@@ -278,34 +278,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInitialized: 0
-  ProjectileFlightTime: 0.75
+  ProjectileFlightTime: 0.5
   FlightTrajectoryY:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
+      inSlope: 0.2985564
+      outSlope: 1.9961189
+      tangentMode: 65
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.07898086
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
+      time: 0.50097215
+      value: 1
+      inSlope: -0.26879972
+      outSlope: -0.031910837
+      tangentMode: 1
+      weightedMode: 3
+      inWeight: 0.3569794
+      outWeight: 0.5734787
+    - serializedVersion: 3
+      time: 1.0006104
+      value: -0.0045166016
+      inSlope: -19.986752
+      outSlope: -19.986752
+      tangentMode: 0
+      weightedMode: 1
+      inWeight: 0.099172354
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   MovementTimer: 0
-  InitialLaunchDuration: 0.25
-  InitialLaunchSpeed: 15
+  InitialLaunchDuration: 0.5
+  InitialLaunchSpeed: {x: 5, y: 2}
 --- !u!1 &5059841462986942423
 GameObject:
   m_ObjectHideFlags: 0

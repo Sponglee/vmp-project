@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a51a0193-e0fa-4d18-9b2d-927256d15433" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BulletFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/BulletFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BulletHitFx.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/BulletHitFx.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/RocketProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/RocketProjectile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RocketProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ProjectileBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ProjectileBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,16 +20,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RocketProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/Game.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/StateMachine/States/ChoiceState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/solidhinken/Documents/GitHub/vmp-project/Assets/Scripts/ECS/Components/AimComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Components/AimComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Components/AttackComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Components/CachedDamageComponent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -63,7 +54,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Providers/PlayerTagProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Providers/StopTagProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Providers/TransformProvider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/solidhinken/Documents/GitHub/vmp-project/Assets/Scripts/ECS/Systems/AimSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Systems/AimSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Systems/AttackSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Systems/CharacterAnimationSystem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -190,8 +180,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/44bf85919fc94563a30118c4319535011ca00/6e/3303c46a/0200003Cpdb61.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/44bf85919fc94563a30118c4319535011ca00/ed/32b19881/02000048pdb79.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44bf85919fc94563a30118c4319535011ca00/3f/2f061462/ISystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c3/cf81690e/Attribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ad098c92691f4253888dffe7e270512d1ca00/39/4862355e/UpdateSystemPair.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ad098c92691f4253888dffe7e270512d1ca00/ac/f41f9207/ISystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdd6809f5c5f470ab4931c45baa5aa9215ae00/8e/72c8049e/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb900569f62341f196b7b5fe48154a92469200/b2/7944093b/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -292,6 +284,7 @@
       <workItem from="1705663904118" duration="29920000" />
       <workItem from="1705792298084" duration="3345000" />
       <workItem from="1706171977566" duration="9325000" />
+      <workItem from="1707230310037" duration="6680000" />
     </task>
     <servers />
   </component>

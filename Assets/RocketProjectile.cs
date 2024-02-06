@@ -8,7 +8,7 @@ using Update = Unity.VisualScripting.Update;
 public class RocketProjectile : ProjectileBase
 {
     public float InitialLaunchDuration = .25f;
-    public float InitialLaunchSpeed = 50f;
+    public Vector2 InitialLaunchSpeed;
 
     private Transform targetCached;
     private Vector3 destinationCached;
@@ -18,17 +18,29 @@ public class RocketProjectile : ProjectileBase
     private Quaternion startRotation;
 
     private Transform _t;
+    private Vector3 _forward;
 
-    private void Start()
+    private void Awake()
     {
         _t = transform;
+        _forward = _t.forward;
     }
 
     protected override void Update()
     {
         if (!IsInitialized)
         {
-            transform.Translate(Vector3.forward * (Time.deltaTime * InitialLaunchSpeed), Space.Self);
+            transform.Translate(
+                Vector3.up * (Time.deltaTime * InitialLaunchSpeed.y) +
+                _forward * (Time.deltaTime * InitialLaunchSpeed.x),
+                Space.World);
+
+            _t.rotation = Quaternion.Lerp(startRotation,
+                Quaternion.LookRotation((endPosition - _t.position).normalized, Vector3.up),
+                MovementTimer / InitialLaunchDuration);
+            ;
+            // UpdateProjectilePosition();
+            // UpdateProjectileRotation();
             MovementTimer += Time.deltaTime;
 
             if (MovementTimer > InitialLaunchDuration)
@@ -53,23 +65,25 @@ public class RocketProjectile : ProjectileBase
     public override void InitializeProjectile(Transform aProjectileTarget)
     {
         targetCached = aProjectileTarget;
-        startRotation = transform.rotation;
-        launchEndPosition = transform.forward * (InitialLaunchSpeed * InitialLaunchDuration);
+        startRotation = _t.rotation;
+        // startPosition = _t.position;
+        endPosition = aProjectileTarget.transform.position;
         MovementTimer = 0f;
     }
 
     public override void InitializeProjectile(Vector3 aProjectileDestination)
     {
         destinationCached = aProjectileDestination;
-        startRotation = transform.rotation;
-        launchEndPosition = transform.forward * (InitialLaunchSpeed * InitialLaunchDuration);
+        startRotation = _t.rotation;
+        // startPosition = _t.position;
+        endPosition = aProjectileDestination;
         MovementTimer = 0f;
     }
 
     protected override void UpdateProjectileRotation()
     {
-        _t.rotation = Quaternion.Lerp(_t.rotation, Quaternion.LookRotation(Vector3.Lerp(startPosition,
+        _t.rotation = Quaternion.LookRotation(Vector3.Lerp(startPosition,
             endPosition + Vector3.up * FlightTrajectoryY.Evaluate(MovementTimer / ProjectileFlightTime),
-            MovementTimer + .25f / ProjectileFlightTime) - transform.position), 0.5f);
+            MovementTimer + .25f / ProjectileFlightTime) - transform.position);
     }
 }

@@ -20,6 +20,7 @@ public class ProjectileBase : MonoBehaviour
     protected Vector3 endPosition;
     protected Transform projectileTarget;
 
+    protected Quaternion startRotation;
 
     protected virtual void Update()
     {
@@ -52,6 +53,7 @@ public class ProjectileBase : MonoBehaviour
     public virtual void InitializeProjectile(Transform aProjectileTarget)
     {
         MovementTimer = 0f;
+        startRotation = transform.rotation;
         startPosition = transform.position;
         endPosition = aProjectileTarget.transform.position;
         projectileTarget = aProjectileTarget;
@@ -62,6 +64,7 @@ public class ProjectileBase : MonoBehaviour
     public virtual void InitializeProjectile(Vector3 aProjectileDestination)
     {
         MovementTimer = 0f;
+        startRotation = transform.rotation;
         startPosition = transform.position;
         endPosition = aProjectileDestination;
         projectileTarget = null;
@@ -83,8 +86,8 @@ public class ProjectileBase : MonoBehaviour
 
     protected virtual void UpdateProjectileRotation()
     {
-        transform.rotation = Quaternion.LookRotation(Vector3.Lerp(startPosition,
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.Lerp(startPosition,
             endPosition + Vector3.up * FlightTrajectoryY.Evaluate(MovementTimer / ProjectileFlightTime),
-            MovementTimer + .25f / ProjectileFlightTime) - transform.position);
+            MovementTimer / ProjectileFlightTime) - transform.position), .05f);
     }
 }
