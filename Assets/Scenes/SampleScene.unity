@@ -779,7 +779,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670379883}
-  m_LocalRotation: {x: -0.14122862, y: 0.8586632, z: -0.34095606, w: -0.35566992}
+  m_LocalRotation: {x: -0.14122865, y: 0.85866314, z: -0.3409561, w: -0.35566995}
   m_LocalPosition: {x: 299.99844, y: 400, z: 300.2112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2299,7 +2299,7 @@ MonoBehaviour:
   - {fileID: 2105280650}
   - {fileID: 1018975431}
   - {fileID: 918578947}
-  <HitFx>k__BackingField: {fileID: 6100162025499211722, guid: 9de32243f20eb411fbc8bd65a2a3c028, type: 3}
+  <HitFx>k__BackingField: {fileID: 110998717464153057, guid: bde12e93ea8064048a3864c5f5d4a143, type: 3}
   projectileFx: {fileID: 4398487294524007822, guid: 3acbc5d1a186146d8b606aea82254720, type: 3}
   IsHoming: 0
   DelayBeforeAttack: 0

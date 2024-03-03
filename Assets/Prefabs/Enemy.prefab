@@ -550,10 +550,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4396642182433536433, guid: 3f30dea82f04e4e0d801c946f431bc54, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b1a95795dadb545bdba459a6e719326f, type: 2}
+    - target: {fileID: -4396642182433536433, guid: 3f30dea82f04e4e0d801c946f431bc54, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84858c7055dd84751a1a2c65d7b38af5, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f30dea82f04e4e0d801c946f431bc54, type: 3}
       propertyPath: m_Name
       value: TankLow
       objectReference: {fileID: 0}
+    - target: {fileID: 5102395909350310581, guid: 3f30dea82f04e4e0d801c946f431bc54, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84858c7055dd84751a1a2c65d7b38af5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f30dea82f04e4e0d801c946f431bc54, type: 3}
 --- !u!4 &568521713097822656 stripped

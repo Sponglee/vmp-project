@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using Update = Unity.VisualScripting.Update;
 
 public class RocketProjectile : ProjectileBase
 {
+    public ParticleSystem thrusterFx;
+
     public float InitialLaunchDuration = .25f;
     public Vector2 InitialLaunchSpeed;
 
@@ -24,6 +21,7 @@ public class RocketProjectile : ProjectileBase
     {
         _t = transform;
         _forward = _t.forward;
+        thrusterFx.gameObject.SetActive(false);
     }
 
     protected override void Update()
@@ -33,8 +31,10 @@ public class RocketProjectile : ProjectileBase
             transform.Translate(Vector3.forward * (Time.deltaTime * InitialLaunchSpeed.x),
                 Space.Self);
 
+            Debug.DrawLine(_t.position, endPosition);
+
             _t.rotation = Quaternion.Lerp(startRotation,
-                Quaternion.LookRotation((endPosition - _t.position).normalized, Vector3.up),
+                Quaternion.LookRotation((endPosition - _t.position).normalized, _t.up),
                 MovementTimer / InitialLaunchDuration);
 
             MovementTimer += Time.deltaTime;
@@ -44,10 +44,12 @@ public class RocketProjectile : ProjectileBase
                 if (targetCached != null)
                 {
                     base.InitializeProjectile(targetCached);
+                    thrusterFx.gameObject.SetActive(true);
                 }
                 else
                 {
                     base.InitializeProjectile(destinationCached);
+                    thrusterFx.gameObject.SetActive(true);
                 }
             }
 
@@ -78,10 +80,8 @@ public class RocketProjectile : ProjectileBase
 
     protected override void UpdateProjectileRotation()
     {
-        Debug.DrawLine(transform.position, endPosition);
-
-        transform.rotation =
-            Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(endPosition - startPosition), .5f);
+        _t.rotation =
+            Quaternion.Lerp(_t.rotation, Quaternion.LookRotation(endPosition - startPosition), .5f);
 
         // transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(
         //     Vector3.Lerp(startPosition,
