@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: a1f150fe76e00497c81b902637a572df
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 3acbc5d1a186146d8b606aea82254720
+    m_Address: RocketProjective
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e701e6ee3d9f74b5dbac38c320be9a27, type: 2}
   m_SchemaSet:

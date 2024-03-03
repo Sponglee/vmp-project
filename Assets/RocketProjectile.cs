@@ -78,8 +78,15 @@ public class RocketProjectile : ProjectileBase
 
     protected override void UpdateProjectileRotation()
     {
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.Lerp(startPosition,
-            endPosition + Vector3.up * FlightTrajectoryY.Evaluate(MovementTimer / ProjectileFlightTime),
-            MovementTimer / ProjectileFlightTime) - transform.position), .05f);
+        Debug.DrawLine(transform.position, endPosition);
+
+        transform.rotation =
+            Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(endPosition - startPosition), .5f);
+
+        // transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(
+        //     Vector3.Lerp(startPosition,
+        //         endPosition +
+        //         Vector3.up * FlightTrajectoryY.Evaluate(MovementTimer / ProjectileFlightTime),
+        //         MovementTimer / ProjectileFlightTime)), .05f);
     }
 }

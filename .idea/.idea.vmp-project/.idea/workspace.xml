@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a51a0193-e0fa-4d18-9b2d-927256d15433" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.blend1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/RocketProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/RocketProjectile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/RocketProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketProjectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ProjectileBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ProjectileBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +69,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Systems/OffScreenSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Systems/OrbSpawnSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ECS/Systems/PickupSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/solidhinken/Documents/GitHub/vmp-project/Assets/Scripts/ProjectileBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ProjectileBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ChoiceData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ChoiceLibrary.cs" root0="FORCE_HIGHLIGHTING" />
@@ -183,9 +188,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ad098c92691f4253888dffe7e270512d1ca00/ac/f41f9207/ISystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdd6809f5c5f470ab4931c45baa5aa9215ae00/8e/72c8049e/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb900569f62341f196b7b5fe48154a92469200/b2/7944093b/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file:///private/var/folders/10/9hpstztx2bddc2ht8hdt06yh0000gn/T/Assets_RocketProjectile_Before_b95dc8a16b75da38de5e3abe862f156995c087ad.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file:///private/var/folders/10/9hpstztx2bddc2ht8hdt06yh0000gn/T/Assets_Scripts_ProjectileBase_Before_c2f6ec710afc28d0fb745f01e6dc30d8dd3b23e1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file:///private/var/folders/10/9hpstztx2bddc2ht8hdt06yh0000gn/T/Assets_Scripts_ProjectileBase_Before_efff041d7c227931e635e23d934867869c1be220.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -198,28 +200,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;new-projectile-damage&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "new-projectile-damage",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/solidhinken/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/solidhinken/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
-      &quot;/Users/solidhinken/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/solidhinken/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache",
+      "/Users/solidhinken/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache",
+      "/Users/solidhinken/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2021.3.31f1/Unity.app/Contents/MacOS/Unity" />
@@ -286,6 +288,8 @@
       <workItem from="1705792298084" duration="3345000" />
       <workItem from="1706171977566" duration="9325000" />
       <workItem from="1707230310037" duration="7716000" />
+      <workItem from="1709448582422" duration="185000" />
+      <workItem from="1709448776298" duration="3288000" />
     </task>
     <servers />
   </component>
