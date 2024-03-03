@@ -44,7 +44,7 @@ public struct AimComponent : IComponent
     {
         Vector3 dir = default;
 
-        if (IsHoming)
+        if (IsHoming && TurretLookTarget != null)
         {
             dir = (TurretLookTarget.position -
                    aPoint.position) + Vector3.up * .5f;

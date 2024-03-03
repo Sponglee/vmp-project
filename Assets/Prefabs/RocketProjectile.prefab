@@ -5145,7 +5145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInitialized: 0
-  ProjectileFlightTime: 0.5
+  ProjectileFlightTime: 0.25
   FlightTrajectoryY:
     serializedVersion: 2
     m_Curve:

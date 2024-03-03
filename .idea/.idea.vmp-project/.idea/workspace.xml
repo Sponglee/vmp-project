@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a51a0193-e0fa-4d18-9b2d-927256d15433" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vmp-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.blend1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FBX/MechLow.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FBX/MechLow.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/RocketProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/RocketProjectile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RocketProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RocketProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-    </list>
+    <list default="true" id="a51a0193-e0fa-4d18-9b2d-927256d15433" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -291,7 +282,7 @@
       <workItem from="1707230310037" duration="7716000" />
       <workItem from="1709448582422" duration="185000" />
       <workItem from="1709448776298" duration="3798000" />
-      <workItem from="1709460365777" duration="1896000" />
+      <workItem from="1709460365777" duration="2461000" />
     </task>
     <servers />
   </component>
